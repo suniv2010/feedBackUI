@@ -1,0 +1,47 @@
+.title{
+    font-size: 36px;
+}
+
+p{
+  font-weight: bold;
+}
+
+table> thead > tr > th {
+    width: 300px;
+}
+td>label {
+     border-radius : 50%;
+     border: solid 2px #ccc;
+     margin-right: 15px;
+     transition: all 0.3s;
+     display: inline-block;
+     width: 25px;
+     height: 25px;
+     text-indent: 7px;
+   }
+   
+   td>input[type="radio"] {
+     display: none;
+   }
+   
+   td>input[type="radio"]:checked + label {
+   border : 1px solid red
+   }
+   input[type=text]{
+    border: 0;
+    border-bottom: 2px solid dimgray;
+    width: 100%;
+    max-width: 100%;
+   }
+   input[type=text]:focus{
+     outline: none
+   }
+   input[type=date]{
+    border: 0;
+    border-bottom: 2px solid dimgray;
+    width: 100%;
+    max-width: 100%;
+   }
+   input[type=date]:focus{
+     outline: none
+   }

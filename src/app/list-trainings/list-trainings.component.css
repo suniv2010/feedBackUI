@@ -1,0 +1,22 @@
+.title{
+    font-size: 36px;
+}
+
+ul, li{
+    list-style: none;
+}
+
+li{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid dimgray;
+    padding-bottom: 15px;
+}
+
+p{
+    margin-bottom: 0px;
+}
+
+a{
+    color: #00A200;
+}

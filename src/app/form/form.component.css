@@ -1,0 +1,30 @@
+.title{
+    font-size: 36px;
+}
+
+table> thead > tr > th {
+    width: 300px;
+}
+td>label {
+     border-radius : 70%;
+     border: solid 2px #ccc;
+     margin-right: 10px;
+     transition: all 0.3s;
+   }
+   
+   td>input[type="radio"] {
+     display: none;
+   }
+   
+   td>input[type="radio"]:checked + label {
+   border : 1px solid red
+   }
+   input[type=text]{
+    border: 0;
+    border-bottom: 2px solid dimgray;
+    width: 100%;
+    max-width: 90%;
+   }
+   input[type=text]:focus{
+     outline: none
+   }

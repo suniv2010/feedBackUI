@@ -1,0 +1,357 @@
+<div>
+  <div class="container mx-auto my-3">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <div class="float-left">
+          <h4 class="title">
+            Training Feedback Form
+          </h4>
+          <label for="name">Your Name : </label>
+          <input type="text" name="name" id="id_name"> <Small>(optional)</Small>
+        </div>
+        <div class="float-right">
+          <img src="assets/images/eb logo.jpg" alt="eb_logo" srcset="" height=100px width=100px>
+        </div>
+      </div>
+      <div class="my-3 float-left">
+        <p>1.How would you rate the quality of the training with regards to its contents?</p>
+        <table class="table table-bordered table-secondary" formGroupName="question_1">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">
+                Your rating
+                <hr>
+                5 = excellent; 4 = good;
+                3 = satisfactory;
+                2 = unsatisfactory; 1= poor
+              </th>
+              <th scope="col">Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Quality of content</td>
+              <td>
+                <input type="radio" id="one" name="quality" formControlName="quality" value=1>
+                <label for="one">1</label>
+                <input type="radio" id="two" name="quality" formControlName="quality" value=2>
+                <label for="two">2 </label>
+                <input type="radio" id="three" name="quality" formControlName="quality" value=3>
+                <label for="three">3 </label>
+                <input type="radio" id="four" name="quality" formControlName="quality" value=4>
+                <label for="four">4 </label>
+                <input type="radio" id="five" name="quality" formControlName="quality" value=5>
+                <label for="five">5 </label>
+
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="quality_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Value of content for you</td>
+              <td>
+                <input type="radio" id="value_one" name="value" formControlName="value" value=1>
+                <label for="value_one">1</label>
+                <input type="radio" id="value_two" name="value" formControlName="value" value=2>
+                <label for="value_two">2 </label>
+                <input type="radio" id="value_three" name="value" formControlName="value" value=3>
+                <label for="value_three">3 </label>
+                <input type="radio" id="value_four" name="value" formControlName="value" value=4>
+                <label for="value_four">4 </label>
+                <input type="radio" id="value_five" name="value" formControlName="value" value=5>
+                <label for="value_five">5 </label>
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="value_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Relevance of exercises</td>
+              <td>
+                <input type="radio" id="relevance_one" name="relevance" formControlName="relevance" value=1>
+                <label for="relevance_one">1</label>
+                <input type="radio" id="relevance_two" name="relevance" formControlName="relevance" value=2>
+                <label for="relevance_two">2 </label>
+                <input type="radio" id="relevance_three" name="relevance" formControlName="relevance" value=3>
+                <label for="relevance_three">3 </label>
+                <input type="radio" id="relevance_four" name="relevance" formControlName="relevance" value=4>
+                <label for="relevance_four">4 </label>
+                <input type="radio" id="relevance_five" name="relevance" formControlName="relevance" value=5>
+                <label for="relevance_five">5 </label>
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="relevance_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Logical structure and comprehensibility</td>
+              <td>
+                <input type="radio" id="logic_one" name="logic" formControlName="logic" value=1>
+                <label for="logic_one">1</label>
+                <input type="radio" id="logic_two" name="logic" formControlName="logic" value=2>
+                <label for="logic_two">2 </label>
+                <input type="radio" id="logic_three" name="logic" formControlName="logic" value=3>
+                <label for="logic_three">3 </label>
+                <input type="radio" id="logic_four" name="logic" formControlName="logic" value=4>
+                <label for="logic_four">4 </label>
+                <input type="radio" id="logic_five" name="logic" formControlName="logic" value=5>
+                <label for="logic_five">5 </label>
+              </td>
+              <td>
+                <textarea rows=2 cols="50" formControlName="logic_comment"></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="my-3 float-left">
+        <p>2. How would you rate the quality of the training with regards to the trainer?</p>
+        <table class="table table-bordered table-secondary" formGroupName="question_2">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">
+                Your rating
+                <hr>
+                5 = excellent; 4 = good;
+                3 = satisfactory;
+                2 = unsatisfactory; 1= poor
+              </th>
+              <th scope="col">Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Presentation skills</td>
+              <td>
+                <input type="radio" id="presentation_one" name="presentation" formControlName="presentation" value=1>
+                <label for="presentation_one">1</label>
+                <input type="radio" id="presentation_two" name="presentation" formControlName="presentation" value=2>
+                <label for="presentation_two">2 </label>
+                <input type="radio" id="presentation_three" name="presentation" formControlName="presentation" value=3>
+                <label for="presentation_three">3 </label>
+                <input type="radio" id="presentation_four" name="presentation" formControlName="presentation" value=4>
+                <label for="presentation_four">4 </label>
+                <input type="radio" id="presentation_five" name="presentation" formControlName="presentation" value=5>
+                <label for="presentation_five">5 </label>
+
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="presentation_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Understandability of explanations</td>
+              <td>
+                <input type="radio" id="understanding_one" name="understanding" formControlName="understanding" value=1>
+                <label for="understanding_one">1</label>
+                <input type="radio" id="understanding_two" name="understanding" formControlName="understanding" value=2>
+                <label for="understanding_two">2 </label>
+                <input type="radio" id="understanding_three" name="understanding" formControlName="understanding"
+                  value=3>
+                <label for="understanding_three">3 </label>
+                <input type="radio" id="understanding_four" name="understanding" formControlName="understanding"
+                  value=4>
+                <label for="understanding_four">4 </label>
+                <input type="radio" id="understanding_five" name="understanding" formControlName="understanding"
+                  value=5>
+                <label for="understanding_five">5 </label>
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="understanding_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Product expertise</td>
+              <td>
+                <input type="radio" id="expertise_one" name="expertise" formControlName="expertise" value=1>
+                <label for="expertise_one">1</label>
+                <input type="radio" id="expertise_two" name="expertise" formControlName="expertise" value=2>
+                <label for="expertise_two">2 </label>
+                <input type="radio" id="expertise_three" name="expertise" formControlName="expertise" value=3>
+                <label for="expertise_three">3 </label>
+                <input type="radio" id="expertise_four" name="expertise" formControlName="expertise" value=4>
+                <label for="expertise_four">4 </label>
+                <input type="radio" id="expertise_five" name="expertise" formControlName="expertise" value=5>
+                <label for="expertise_five">5 </label>
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="expertise_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Interaction with participants</td>
+              <td>
+                <input type="radio" id="interaction_one" name="interaction" formControlName="interaction" value=1>
+                <label for="interaction_one">1</label>
+                <input type="radio" id="interaction_two" name="interaction" formControlName="interaction" value=2>
+                <label for="interaction_two">2 </label>
+                <input type="radio" id="interaction_three" name="interaction" formControlName="interaction" value=3>
+                <label for="interaction_three">3 </label>
+                <input type="radio" id="interaction_four" name="interaction" formControlName="interaction" value=4>
+                <label for="interaction_four">4 </label>
+                <input type="radio" id="interaction_five" name="interaction" formControlName="interaction" value=5>
+                <label for="interaction_five">5 </label>
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="interaction_comment"></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="my-3 float-left col-lg-12">
+        <p>3. Did the training meet your expectations?</p>
+        <div formGroupName="question_3">
+          <input type="radio" id="expectations_yes" name="expectations" formControlName="expectations" value="yes">
+          <label for="expectations_yes">Yes </label>
+          <input type="radio" id="expectations_no" name="expectations" formControlName="expectations" value="no">
+          <label for="expectations_no">No </label>
+          <p>If yes, what did you like most? If no, where could improvements be made?
+
+          </p>
+          <input type="text" name="expectations_comment" id="expectations_comment"
+            formControlName="expectations_comment">
+        </div>
+      </div>
+      <div class="my-3 float-left col-lg-12">
+        <p>4. Which was the most valuable part of the training?</p>
+        <div formGroupName="question_4">
+          <input type="text" name="valuable_comment" id="valuable_comment" formControlName="valuable_comment" required>
+        </div>
+      </div>
+      <div class="my-3 float-left col-lg-12">
+        <p>5. Which topics were missing in the training?</p>
+        <div formGroupName="question_5">
+          <input type="text" name="missing_comment" id="missing_comment" formControlName="missing_comment" required>
+        </div>
+      </div>
+      <div class="my-3 float-left col-lg-12">
+        <p>6. How long did you already work with the EB product (month or years)?</p>
+        <div formGroupName="question_6">
+          <input type="text" name="duration_comment" id="duration_comment" formControlName="duration_comment" required>
+        </div>
+      </div>
+      <div class="my-3 float-left col-lg-12">
+        <p>7. For which tasks do you use the product?</p>
+        <div formGroupName="question_7">
+          <input type="text" name="product_comment" id="product_comment" formControlName="product_comment" required>
+        </div>
+      </div>
+      <div class="my-3 float-left">
+        <p>8. Your overall training experiences?</p>
+        <table class="table table-bordered table-secondary" formGroupName="question_8">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">
+                Your rating
+                <hr>
+                5 = excellent; 4 = good;
+                3 = satisfactory;
+                2 = unsatisfactory; 1= poor
+              </th>
+              <th scope="col">Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Recommendation of this training to others</td>
+              <td>
+                <input type="radio" id="recommendation_one" name="recommendation" formControlName="recommendation"
+                  value=1>
+                <label for="recommendation_one">1</label>
+                <input type="radio" id="recommendation_two" name="recommendation" formControlName="recommendation"
+                  value=2>
+                <label for="recommendation_two">2 </label>
+                <input type="radio" id="recommendation_three" name="recommendation" formControlName="recommendation"
+                  value=3>
+                <label for="recommendation_three">3 </label>
+                <input type="radio" id="recommendation_four" name="recommendation" formControlName="recommendation"
+                  value=4>
+                <label for="recommendation_four">4 </label>
+                <input type="radio" id="recommendation_five" name="recommendation" formControlName="recommendation"
+                  value=5>
+                <label for="recommendation_five">5 </label>
+
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="recommendation_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Overall event organization</td>
+              <td>
+                <input type="radio" id="organization_one" name="organization" formControlName="organization" value=1>
+                <label for="organization_one">1</label>
+                <input type="radio" id="organization_two" name="organization" formControlName="organization" value=2>
+                <label for="organization_two">2 </label>
+                <input type="radio" id="organization_three" name="organization" formControlName="organization" value=3>
+                <label for="organization_three">3 </label>
+                <input type="radio" id="organization_four" name="organization" formControlName="organization" value=4>
+                <label for="organization_four">4 </label>
+                <input type="radio" id="organization_five" name="organization" formControlName="organization" value=5>
+                <label for="organization_five">5 </label>
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="organization_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Applicability of what I learned</td>
+              <td>
+                <input type="radio" id="applicability_one" name="applicability" formControlName="applicability" value=1>
+                <label for="applicability_one">1</label>
+                <input type="radio" id="applicability_two" name="applicability" formControlName="applicability" value=2>
+                <label for="applicability_two">2 </label>
+                <input type="radio" id="applicability_three" name="applicability" formControlName="applicability"
+                  value=3>
+                <label for="applicability_three">3 </label>
+                <input type="radio" id="applicability_four" name="applicability" formControlName="applicability"
+                  value=4>
+                <label for="applicability_four">4 </label>
+                <input type="radio" id="applicability_five" name="applicability" formControlName="applicability"
+                  value=5>
+                <label for="applicability_five">5 </label>
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="applicability_comment"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>Overall training experience</td>
+              <td>
+                <input type="radio" id="experience_one" name="experience" formControlName="experience" value=1>
+                <label for="experience_one">1</label>
+                <input type="radio" id="experience_two" name="experience" formControlName="experience" value=2>
+                <label for="experience_two">2 </label>
+                <input type="radio" id="experience_three" name="experience" formControlName="experience" value=3>
+                <label for="experience_three">3 </label>
+                <input type="radio" id="experience_four" name="experience" formControlName="experience" value=4>
+                <label for="experience_four">4 </label>
+                <input type="radio" id="experience_five" name="experience" formControlName="experience" value=5>
+                <label for="experience_five">5 </label>
+              </td>
+              <td>
+                <textarea rows="2" cols="50" formControlName="experience_comment"></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="my-3 float-left col-lg-12">
+        <p>9. Are you satisfied with the training? We welcome your testimonial statement:</p>
+        <div formGroupName="question_9">
+          <textarea type="text" name="satisfaction_comment" id="satisfaction_comment"
+            formControlName="satisfaction_comment" style="width: 90%" required>
+            </textarea>
+        </div>
+      </div>
+      <div class="my-3 float-left col-lg-12">
+        <button class="btn btn-success" type="submit"> Submit </button>
+      </div>
+    </form>
+  </div>
+</div>

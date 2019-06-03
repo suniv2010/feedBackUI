@@ -1,0 +1,77 @@
+<div class="container-fluid mx-auto my-3">
+    <div>
+      <div class="col-lg-12">
+        <h4 class="title float-left ">
+          Feedback Report
+        </h4>
+        <button class="btn btn-success download-btn float-right" (click)="exportAsXLSX()">Download Excel Report</button>
+      </div>
+      
+
+    </div>
+    </div>
+
+   
+    <select class="custom-select col-6" (ngModelChange)="updateSelectedValue($event)"  [(ngModel)]="selectedValue"  name="training_name" id="training_name">
+        <option [ngValue]="undefined">all</option>
+        <option *ngFor="let training of trainingList" [ngValue]="training.training">{{training.training}}</option>
+    </select>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+
+      <th>Training</th>
+      <th>Trainers</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th *ngFor="let item of feedBackListTabulated[0]?.questions; let i = index">
+        <div class="row">
+          <div class="col-sm-12">
+            <p>{{item.question}}</p>
+            <div class="row">
+              <div class="col-12 col-sm-3"
+                [ngClass]="{'col-8 col-sm-3': item.question_type != 'yes or No', 'col-9':item.question_type == 'yes or No' }"
+                *ngFor="let question of item?.subquestions">
+                <h6> {{question?.sub_ques}}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let list of feedBackListTabulated | selectbox: selectedValue; let i = index" >
+      <td>{{i}}</td>
+
+      <td>{{list.training}}</td>
+      <td>{{list.trainers}}</td>
+      <td>{{list.location}}</td>
+      <td>{{list.date}}</td>
+      <td *ngFor="let item of list.questions; let i = index">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row" *ngIf="item.question_type=== 'rating'">
+              <div class="col-12 col-sm-3" *ngFor="let question of item?.subquestions">
+                {{question?.rating}}<span *ngIf="question.comments">, {{question?.comments}}</span>
+              </div>
+            </div>
+            <div class="row" *ngIf="item.question_type=== 'yes or No'">
+              <div class="col-3" *ngFor="let question of item?.subquestions">
+                {{item?.answer}}, {{question?.comments}}
+              </div>
+            </div>
+            <div class="row" *ngIf="item.question_type=== ''">
+              <div class="col-2 col-sm-6">
+                {{item?.answer}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

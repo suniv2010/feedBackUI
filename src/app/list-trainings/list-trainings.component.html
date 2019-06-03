@@ -1,0 +1,27 @@
+<div class="container mx-auto my-3">
+      <div>
+        <div class="my-3 float-left col-lg-10">
+          <h4 class="title">
+            Training List
+          </h4>
+      
+        </div>
+        <!-- <div class="my-3 float-left col-lg-2">
+            <button>Add Training</button>
+           
+          </div> -->
+
+      </div>
+      <div class="clearfix"></div>
+<ul class="my-3 col-lg-12">
+  <li *ngFor="let training of TrainingList; let i = index">
+   <h5> <a [routerLink]="['/trainingform',training?.id]">Training Name: {{training?.training}}</a></h5>
+    <p><b>Trainers:</b> {{training?.trainers}} </p>
+    <p><b>Location:</b> {{training?.location}} </p>
+    <p *ngIf = "training?.to_date == training?.from_date"><b>Date:</b> {{training?.from_date}} </p>
+    <p *ngIf = "training?.to_date != training?.from_date"><b>Date:</b> {{training?.from_date}} to {{training?.to_date}}</p>
+  </li>
+</ul>
+
+</div>
+
