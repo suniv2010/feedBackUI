@@ -119,7 +119,7 @@ export class TrainingformComponent implements OnInit {
         this.trainingDate = this.TrainingDetails["from_date"];
       }
       else{
-        this.trainingDate =  this.TrainingDetails["from_date"] + "to" + this.TrainingDetails["to_date"]
+        this.trainingDate =  this.TrainingDetails["from_date"] + " to " + this.TrainingDetails["to_date"]
       }
     });
   }
