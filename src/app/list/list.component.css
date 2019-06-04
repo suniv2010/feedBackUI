@@ -1,15 +1,15 @@
 table{
     width: max-content;
     text-align: center;
-    margin-top:100px;
+    margin-top:20px;
 }
 
 .download-btn{
     margin-left: 15px;
     font-weight: bold;
-    position: absolute;
-    top: 0px;
-    right: 0px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
 }
 
 .title{

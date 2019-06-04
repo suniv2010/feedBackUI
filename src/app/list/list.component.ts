@@ -25,7 +25,6 @@ export class ListComponent implements OnInit {
     this.httpService.getList().subscribe(response => {
       console.log(response);
       this.feedBackListTabulated = response as [];
-      this.feedbackWholeData = response as [];
       // this.feedBackListTabulated.pop();
       // console.log(this.feedBackListTabulated);
       // console.log(this.feedbackWholeData);
@@ -47,21 +46,31 @@ export class ListComponent implements OnInit {
 
 
   exportAsXLSX():void {
+    this.httpService.getList().subscribe(response => {
+      // console.log(response);
+      this.feedBackList = response as [];
+    });
 
-    // if(this.selectedValue != undefined){
-    //   for(var i =0; i<this.feedBackList.length; i++){
-    //     if(this.feedBackList[i].training != this.selectedValue){
-    //       this.feedBackList.splice(i, 1);
-    //     }
 
-    //   }
-    //   console.log(this.feedBackList);
-    // }
+    if(this.selectedValue !== undefined){
+      for(var i =0; i<this.feedBackList.length; i++){
+
+        if(this.feedBackList[i].training !== this.selectedValue){
+            console.log(this.feedBackList[i].training);
+
+            console.log(this.selectedValue);
+          this.feedBackList.splice(i, 1);
+        }
+      }
+      console.log(this.feedBackList);
+    }
+
 
     for(var i =0; i<this.feedBackList.length; i++){
       
       var question_json = {};
       // console.log(i);
+      
       
       for(var j = 0;j< this.feedBackList[i].questions.length; j++){
         if(this.feedBackList[i].questions[j].question_type == "rating"){          
@@ -82,8 +91,6 @@ export class ListComponent implements OnInit {
     Object.assign(this.feedBackList[i], question_json); 
 
     }
-
-
 
       console.log(question_json);
 

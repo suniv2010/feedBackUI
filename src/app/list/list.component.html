@@ -11,12 +11,12 @@
     </div>
     </div>
 
-   
-    <select class="custom-select col-6" (ngModelChange)="updateSelectedValue($event)"  [(ngModel)]="selectedValue"  name="training_name" id="training_name">
+    <div class="col-lg-12 mx-4 my-3" style="clear: both;"><br/>
+    <label for ="training_name" style="font-weight: bold;">Filter By Training Name: &nbsp;&nbsp;</label><select class="custom-select col-6" (ngModelChange)="updateSelectedValue($event)"  [(ngModel)]="selectedValue"  name="training_name" id="training_name">
         <option [ngValue]="undefined">all</option>
         <option *ngFor="let training of trainingList" [ngValue]="training.training">{{training.training}}</option>
     </select>
-
+</div>
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
