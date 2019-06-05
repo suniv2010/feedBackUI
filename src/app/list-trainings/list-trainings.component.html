@@ -1,27 +1,33 @@
-<div class="container mx-auto my-3">
-      <div>
-        <div class="my-3 float-left col-lg-10">
-          <h4 class="title">
-            Training List
-          </h4>
+<mat-card>
+  <mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>Contact List</mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="addTraining()">add</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <th>Training Name</th>
+          <th>Trainers</th>
+          <th>Location</th>
+          <th>Date</th>
+        </thead>
+
+        <tr *ngFor="let training of TrainingList; let i = index">
+          <td>{{training?.training}}</td>
+          <td>{{training?.trainers}}</td>
+          <td>{{training?.location}} </td>
+          <td><p *ngIf = "training?.to_date == training?.from_date"><b>Date:</b> {{training?.from_date}} </p>
+            <p *ngIf = "training?.to_date != training?.from_date"><b>Date:</b> {{training?.from_date}} to {{training?.to_date}}</p></td>
+          <td><mat-icon (click)="editContact(training?.id)">edit</mat-icon></td>
+          <td><mat-icon (click)="deleteContact(training?.id)">delete</mat-icon></td>
       
-        </div>
-        <!-- <div class="my-3 float-left col-lg-2">
-            <button>Add Training</button>
-           
-          </div> -->
-
-      </div>
-      <div class="clearfix"></div>
-<ul class="my-3 col-lg-12">
-  <li *ngFor="let training of TrainingList; let i = index">
-   <h5> <a [routerLink]="['/trainingform',training?.id]">Training Name: {{training?.training}}</a></h5>
-    <p><b>Trainers:</b> {{training?.trainers}} </p>
-    <p><b>Location:</b> {{training?.location}} </p>
-    <p *ngIf = "training?.to_date == training?.from_date"><b>Date:</b> {{training?.from_date}} </p>
-    <p *ngIf = "training?.to_date != training?.from_date"><b>Date:</b> {{training?.from_date}} to {{training?.to_date}}</p>
-  </li>
-</ul>
-
-</div>
-
+        </tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

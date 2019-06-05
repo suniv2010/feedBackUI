@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HttpService } from '../shared/http.service';
+import { AddTrainingComponent } from '../list-trainings/add-training/add-training.component';
+import { MatDialog,  MatDialogConfig, MatDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-list-trainings',
@@ -7,10 +9,10 @@ import { HttpService } from '../shared/http.service';
   styleUrls: ['./list-trainings.component.css']
 })
 export class ListTrainingsComponent implements OnInit {
-
+  isPopupOpened = true;
   TrainingList = [];
-  constructor(private httpService: HttpService) { }
-
+  constructor(private httpService: HttpService, private dialog: MatDialog) { }
+  dialogRef: MatDialogRef<AddTrainingComponent>;
   ngOnInit() {
     this.httpService.getTrainingList().subscribe(response => {
       console.log(response);
@@ -18,6 +20,30 @@ export class ListTrainingsComponent implements OnInit {
     });
 
 
+  }
+  addTraining() {
+    this.isPopupOpened = true;
+    const dialogRef = this.dialog.open(AddTrainingComponent, {
+      data: {}
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.isPopupOpened = false;
+    });
+  }
+
+  editContact(id: number) {
+    this.isPopupOpened = true;
+    const training = this.TrainingList.find(c => c.id === id);
+    const dialogRef = this.dialog.open(AddTrainingComponent, {
+      data: training
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.isPopupOpened = false;
+    });
   }
 
 }

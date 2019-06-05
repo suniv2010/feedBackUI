@@ -33,6 +33,8 @@ export class HttpService {
           })
         );
   }
+
+  
   getTrainingNameList() {
     return this.http.get('https://feedback-eb.herokuapp.com/trainingnames/list');
   }

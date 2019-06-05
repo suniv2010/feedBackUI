@@ -15,9 +15,14 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { SelectboxPipe } from './selectbox.pipe';
 
+import { AddTrainingComponent } from './list-trainings/add-training/add-training.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule,MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home' ,pathMatch:'full'},  
+  { path: '', redirectTo: '/home' , pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'list', component: ListComponent },
   { path: 'form', component: FormComponent },
@@ -36,17 +41,27 @@ const routes: Routes = [
     ListTrainingsComponent,
     TrainingformComponent,
     HomeComponent,
-    SelectboxPipe
+    SelectboxPipe,
+    AddTrainingComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+
   ],
-  exports:[SelectboxPipe],
+  exports: [SelectboxPipe],
   providers: [ExcelService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AddTrainingComponent
+  ]
 })
 export class AppModule { }
