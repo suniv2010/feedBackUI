@@ -37,12 +37,12 @@ export class HttpService {
   editTraining(trainingId) {
     return this.http.get('https://feedback-eb.herokuapp.com/trainingdetails/edit/' + trainingId);
   }
-  updateTraining(trainingData) {
-    console.log(trainingData)
-    return this.http.get('https://feedback-eb.herokuapp.com/trainingdetails/update/' + trainingData.id);
+  updateTraining(updatedData) {
+    console.log(updatedData)
+    return this.http.post('https://feedback-eb.herokuapp.com/trainingdetails/update/' + updatedData.id, updatedData);
   }
   deleteTraining(trainingId) {
-    return this.http.get('https://feedback-eb.herokuapp.com/trainingdetails/delete/' + trainingId);
+    return this.http.post('https://feedback-eb.herokuapp.com/trainingdetails/delete/' + trainingId) 
   }
 
   
