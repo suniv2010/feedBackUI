@@ -55,46 +55,49 @@ export class AddTrainingComponent {
     }
 
   onSubmit() {
-    console.log(JSON.stringify(this.form.value));
-    this.convertResponseToPost(this.form.value);
-  }
-
-  convertResponseToPost(formValue) {
     const finalResponse = {
+      "id":this.data.id,
       "training": this.form.controls['training'].value.training_name,
       "trainers": this.form.controls['trainers'].value.trainer_name,
       "location": this.form.controls['location'].value.location_name,
       "from_date": this.form.controls['sel_from_date'].value.from_date,
       "to_date": this.form.controls['sel_to_date'].value.to_date,
     };
-
-    this.makeApiCall(finalResponse);
-  }
-
-  makeApiCall(trainingdetails) {
-    this.httpService.createTraining(trainingdetails)
-    .subscribe(a => {
-      
-    }, error => {
-        if ( error.status == 200 ) {
-          this.dialogRef.close();
-          this.dialogRef.afterClosed().subscribe(result => {
-            this.httpService.getTrainingList().subscribe(response => {
-              console.log(response);
-              this.TrainingList = response as [];
-             window.location.reload()
-              
+    console.log(this.data.id);
+    if (this.data.id == "undefined") {
+      this.httpService.createTraining(finalResponse)
+      .subscribe(a => {
+      }, error => {
+          if ( error.status == 200 ) {
+            this.dialogRef.close();
+            this.dialogRef.afterClosed().subscribe(result => {
+              this.httpService.getTrainingList().subscribe(response => {
+                console.log(response);
+                this.TrainingList = response as [];
+               window.location.reload();
+              });
             });
-          });
-  
- 
+          }
+      });
+
+    } else {
+      this.httpService.updateTraining(finalResponse)
+      .subscribe(a => {
+      }, error => {
+          if ( error.status == 200 ) {
+            this.dialogRef.close();
+            this.dialogRef.afterClosed().subscribe(result => {
+              this.httpService.getTrainingList().subscribe(response => {
+                console.log(response);
+                this.TrainingList = response as [];
+               window.location.reload();
+              });
+            });
+          }
+      });
+    }
     
-
-
-         
-        }
-    });
-
-   
   }
+
+ 
 }

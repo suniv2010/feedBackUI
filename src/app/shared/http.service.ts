@@ -34,6 +34,18 @@ export class HttpService {
         );
   }
 
+  editTraining(trainingId) {
+    return this.http.get('https://feedback-eb.herokuapp.com/trainingdetails/edit/' + trainingId);
+  }
+  updateTraining(trainingData) {
+    console.log(trainingData)
+    return this.http.get('https://feedback-eb.herokuapp.com/trainingdetails/update/' + trainingData.id);
+  }
+  deleteTraining(trainingId) {
+    return this.http.get('https://feedback-eb.herokuapp.com/trainingdetails/delete/' + trainingId);
+  }
+
+  
   
   getTrainingNameList() {
     return this.http.get('https://feedback-eb.herokuapp.com/trainingnames/list');

@@ -18,7 +18,7 @@
         </thead>
 
         <tr *ngFor="let training of TrainingList; let i = index">
-          <td>{{training?.training}}</td>
+          <td><a [routerLink]="['/trainingform',training?.id]">Training Name: {{training?.training}}</a></td>
           <td>{{training?.trainers}}</td>
           <td>{{training?.location}} </td>
           <td><p *ngIf = "training?.to_date == training?.from_date"><b>Date:</b> {{training?.from_date}} </p>

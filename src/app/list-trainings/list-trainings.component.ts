@@ -34,16 +34,41 @@ export class ListTrainingsComponent implements OnInit {
   }
 
   editTraining(id: number) {
+    console.log(id);
     this.isPopupOpened = true;
-    const training = this.TrainingList.find(c => c.id === id);
-    const dialogRef = this.dialog.open(AddTrainingComponent, {
-      data: training
-    });
+    
+    this.httpService.editTraining(id).subscribe(training => {
 
+      const dialogRef = this.dialog.open(AddTrainingComponent, {
+        data: training
+      });
+  
+  
+      dialogRef.afterClosed().subscribe(result => {
+        this.isPopupOpened = false;
+      });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.isPopupOpened = false;
     });
+    
+    
+  }
+
+  deleteTraining(id){
+    this.httpService.deleteTraining(id)
+      .subscribe(a => {
+      }, error => {
+          if ( error.status == 200 ) {
+            this.dialogRef.close();
+            this.dialogRef.afterClosed().subscribe(result => {
+              this.httpService.getTrainingList().subscribe(response => {
+                console.log(response);
+                this.TrainingList = response as [];
+               window.location.reload();
+              });
+            });
+          }
+      });
+
   }
 
 }
