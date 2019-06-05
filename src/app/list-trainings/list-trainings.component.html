@@ -23,8 +23,8 @@
           <td>{{training?.location}} </td>
           <td><p *ngIf = "training?.to_date == training?.from_date"><b>Date:</b> {{training?.from_date}} </p>
             <p *ngIf = "training?.to_date != training?.from_date"><b>Date:</b> {{training?.from_date}} to {{training?.to_date}}</p></td>
-          <td><mat-icon (click)="editContact(training?.id)">edit</mat-icon></td>
-          <td><mat-icon (click)="deleteContact(training?.id)">delete</mat-icon></td>
+          <td><mat-icon (click)="editTraining(training?.id)">edit</mat-icon></td>
+          <td><mat-icon (click)="deleteTraining(training?.id)">delete</mat-icon></td>
       
         </tr>
       </table>

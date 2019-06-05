@@ -33,7 +33,7 @@ export class ListTrainingsComponent implements OnInit {
     });
   }
 
-  editContact(id: number) {
+  editTraining(id: number) {
     this.isPopupOpened = true;
     const training = this.TrainingList.find(c => c.id === id);
     const dialogRef = this.dialog.open(AddTrainingComponent, {
