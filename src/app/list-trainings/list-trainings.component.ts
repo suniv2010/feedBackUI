@@ -58,13 +58,12 @@ export class ListTrainingsComponent implements OnInit {
       .subscribe(a => {
       }, error => {
           if ( error.status == 200 ) {
-            this.dialogRef.close();
-            this.dialogRef.afterClosed().subscribe(result => {
+           
               this.httpService.getTrainingList().subscribe(response => {
                 console.log(response);
                 this.TrainingList = response as [];
-               window.location.reload();
-              });
+               //window.location.reload();
+             
             });
           }
       });

@@ -64,7 +64,7 @@ export class AddTrainingComponent {
       "to_date": this.form.controls['sel_to_date'].value.to_date,
     };
     console.log(this.data.id);
-    if (this.data.id == "undefined") {
+    if (!this.data.id) {
       this.httpService.createTraining(finalResponse)
       .subscribe(a => {
       }, error => {
