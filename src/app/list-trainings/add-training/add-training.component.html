@@ -14,7 +14,7 @@
           </div>
           <div class="my-3 float-left col-lg-2">
             <mat-dialog-actions>
-              <button mat-button [mat-dialog-close]="true">Yes</button>
+              <button mat-button [mat-dialog-close]="true">Close</button>
             </mat-dialog-actions>
         
           </div>
@@ -23,6 +23,9 @@
        
         <div class="my-3 float-left col-lg-12">
           <p>Training Name</p>
+        
+        
+          
           <div formGroupName="training">
             <!-- <input type="text" name="training_name" id="training_name" formControlName="training_name" required> -->
             <select class="custom-select"  name="training_name" id="training_name"  formControlName="training_name">
@@ -36,10 +39,19 @@
           <div formGroupName="trainers">
             <!-- <input type="text" name="trainer_name" id="trainer_name" formControlName="trainer_name" required> -->
   
-            <select class="custom-select"  name="trainer_name" id="trainer_name"   formControlName="trainer_name">
+
+            <mat-form-field>
+              <mat-select multiple placeholder="Select Level of Education" formControlName="trainer_name" >
+                <mat-option *ngFor="let trainer of trainerList" [value]="trainer?.trainers">
+                {{trainer?.trainers}}
+              </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!--<select class="custom-select"  name="trainer_name" id="trainer_name"   formControlName="trainer_name">
                 <option value="" disabled>Choose Trainer</option>
                 <option *ngFor="let trainer of trainerList" [ngValue]="trainer.trainers">{{trainer.trainers}}</option>
-                </select>
+                </select>-->
   
           </div>
         </div>

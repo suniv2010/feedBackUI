@@ -44,6 +44,7 @@ export class AddTrainingComponent {
 
    
     ngOnInit() {
+  
       this.httpService.getTrainingNameList().subscribe(response => {
         console.log(response);
         this.trainingList = response as [];
@@ -55,6 +56,7 @@ export class AddTrainingComponent {
     }
 
   onSubmit() {
+   
     const finalResponse = {
       "id":this.data.id,
       "training": this.form.controls['training'].value.training_name,
@@ -98,6 +100,7 @@ export class AddTrainingComponent {
     }
     
   }
-
  
+
+
 }

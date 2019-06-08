@@ -19,7 +19,7 @@ import { AddTrainingComponent } from './list-trainings/add-training/add-training
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule,MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { MatListModule, MatSelectModule, MatOptionModule, MatButtonModule,MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home' , pathMatch: 'full'},
@@ -55,6 +55,10 @@ const routes: Routes = [
     MatCardModule,
     MatIconModule,
     MatToolbarModule,
+    MatSelectModule,
+    MatListModule,
+    MatButtonModule,
+    MatOptionModule
 
   ],
   exports: [SelectboxPipe],
