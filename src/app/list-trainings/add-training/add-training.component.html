@@ -29,7 +29,7 @@
           <div formGroupName="training">
 
               <mat-form-field>
-                  <mat-select name="training_name" id="training_name"  >
+                  <mat-select  name="training_name" id="training_name"  formControlName="training_name" >
                     <mat-option *ngFor="let training of trainingList" [value]="training.training">{{training.training}}
                         
                   </mat-option>
