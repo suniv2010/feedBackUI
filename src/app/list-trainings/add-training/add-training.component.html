@@ -27,11 +27,31 @@
         
           
           <div formGroupName="training">
-            <!-- <input type="text" name="training_name" id="training_name" formControlName="training_name" required> -->
+
+              <mat-form-field>
+                  <mat-select name="training_name" id="training_name"  >
+                    <mat-option *ngFor="let training of trainingList" [value]="training.training">{{training.training}}
+                        
+                  </mat-option>
+                  <mat-option disabled="disabled" class="filter-option">
+                      <form [formGroup]="training">
+                          <div formGroupName="newTraining">
+                              <input name="new_training" id="new_training" formControlName="new_training" placeholder="Enter Value" ><button (click)="addTraining()">add</button>
+                          </div>  
+                    </form>
+                      <!--<mat-option (click)="selectAll(yearSelect, years)" #checkAll> Select All-->
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+
+            <!-- <input type="text" name="training_name" id="training_name" formControlName="training_name" required> 
             <select class="custom-select"  name="training_name" id="training_name"  formControlName="training_name">
                 <option value="" disabled>Choose Training</option>
                 <option *ngFor="let training of trainingList" [ngValue]="training.training">{{training.training}}</option>
-                </select>
+                
+                </select>-->
+              
           </div>
         </div>
         <div class="my-3 float-left col-lg-12">
@@ -45,6 +65,15 @@
                 <mat-option *ngFor="let trainer of trainerList" [value]="trainer?.trainers">
                 {{trainer?.trainers}}
               </mat-option>
+
+            
+
+
+              <form [formGroup]="trainerForm">
+                  <div formGroupName="newTainer">
+                      <input name="new_trainer" id="new_trainer" formControlName="new_trainer" placeholder="Enter Value" ><button (click)="addTrainer()">add</button>
+                  </div>  
+            </form>
               </mat-select>
             </mat-form-field>
 

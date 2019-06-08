@@ -53,9 +53,17 @@ export class HttpService {
   getTrainerNameList() {
     return this.http.get('https://feedback-eb.herokuapp.com/trainernames/list');
   }
+  addTrainerName(name){
+    return this.http.post('https://feedback-eb.herokuapp.com/trainernames/add/',name);
+  }
   getTrainingList() {
     return this.http.get('https://feedback-eb.herokuapp.com/trainingdetails/list');
   }
+
+ addTrainingName(name){
+    return this.http.post('https://feedback-eb.herokuapp.com/trainingnames/add/',name);
+  }
+
   getTrainingDetails(trainingId) {
     return this.http.get('https://feedback-eb.herokuapp.com/trainingdetails/details/' + trainingId);
   }

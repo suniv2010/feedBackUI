@@ -6,6 +6,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpService } from '../../shared/http.service';
 import { Router } from '@angular/router';
 import { MatDialog,  MatDialogConfig, MatDialogRef} from "@angular/material";
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-add-training',
@@ -17,11 +18,22 @@ export class AddTrainingComponent {
   trainingList = [];
   trainerList = [];
   TrainingList = [];
-
   
+  training = this.fb.group({
+    newTraining: this.fb.group({
+      new_training: [this.data.newTraining],
+    })
+  });
+
+  trainerForm= this.fb.group({
+    newTainer: this.fb.group({
+      new_trainer: [this.data.newTainer],
+    })
+  });
 
   form = this.fb.group({
     id: [this.data.id],
+   
     training: this.fb.group({
       training_name: [this.data.training, Validators.required],
     }),
@@ -100,7 +112,46 @@ export class AddTrainingComponent {
     }
     
   }
- 
+  addTraining(tr){
+    let trainingObj =  {
+      "training":this.training.controls['newTraining'].value.new_training
+   };
+
+    this.httpService.addTrainingName(trainingObj)
+      .subscribe(a => {
+        console.log(a);
+      }, error => {
+          if ( error.status == 200 ) {
+           
+            this.httpService.getTrainingNameList().subscribe(response => {
+              console.log(response);
+              this.trainingList = response as [];
+            });
+          }
+      });
+   
+    
+  }
+  addTrainer(){
+    let trainerObj =  {
+      "trainers":this.trainerForm.controls['newTainer'].value.new_trainer
+   };
+
+    this.httpService.addTrainerName(trainerObj)
+      .subscribe(a => {
+        console.log(a);
+      }, error => {
+          if ( error.status == 200 ) {
+           
+            this.httpService.getTrainerNameList().subscribe(response => {
+              console.log(response);
+              this.trainerList = response as [];
+            });
+          }
+      });
+   
+    
+  }
 
 
 }
