@@ -20,6 +20,8 @@ import { AddTrainingComponent } from './list-trainings/add-training/add-training
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatListModule, MatSelectModule, MatOptionModule, MatButtonModule,MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { AnalysisComponent } from './analysis/analysis.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home' , pathMatch: 'full'},
@@ -28,6 +30,7 @@ const routes: Routes = [
   { path: 'form', component: FormComponent },
   { path: 'createtraining', component: CreatetrainingComponent },
   { path: 'traininglist', component: ListTrainingsComponent },
+  { path: 'analysis', component: BarChartComponent },
   { path: 'trainingform/:id', component: TrainingformComponent },
   { path: 'success', component: SuccessComponent }
 ];
@@ -42,7 +45,9 @@ const routes: Routes = [
     TrainingformComponent,
     HomeComponent,
     SelectboxPipe,
-    AddTrainingComponent
+    AddTrainingComponent,
+    BarChartComponent,
+    AnalysisComponent
   ],
   imports: [
     BrowserModule,
