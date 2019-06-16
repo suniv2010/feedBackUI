@@ -112,7 +112,7 @@ export class TrainingformComponent implements OnInit {
       console.log(response);
       this.TrainingDetails = response as {};
       this.trainingName = this.TrainingDetails["training"];
-      this.trainerNames = this.TrainingDetails["trainers"];
+      this.trainerNames = this.TrainingDetails["trainers"].toString();
       this.trainingLocation = this.TrainingDetails["location"];
       if (this.TrainingDetails["from_date"] == this.TrainingDetails["to_date"])
       {

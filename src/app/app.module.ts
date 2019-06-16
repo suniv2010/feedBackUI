@@ -19,6 +19,7 @@ import { AddTrainingComponent } from './list-trainings/add-training/add-training
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// tslint:disable-next-line:max-line-length
 import { MatListModule, MatSelectModule, MatOptionModule, MatButtonModule,MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 import { AnalysisComponent } from './analysis/analysis.component';
