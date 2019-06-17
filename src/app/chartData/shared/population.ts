@@ -7,3 +7,9 @@ export const POPULATION: any[] = [
     {age: '45-64', population: 8819342},
     {age: '≥65', population: 612463}
 ];
+
+
+// export const POPULATION: any[] = [
+//     {State: 'AL', 'Under 5 Years': 310504},
+//     {State: 'a', 'Under 5 Years': 777}
+// ];

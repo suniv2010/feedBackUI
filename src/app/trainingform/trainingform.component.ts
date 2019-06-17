@@ -31,6 +31,10 @@ export class TrainingformComponent implements OnInit {
   trainingDate = '';
 
   form = this.fb.group({
+    participantName: this.fb.group({
+
+      id_name: ['', Validators.required],
+    }),
     training_n: this.fb.group({
 
       training_name: ['', Validators.required],
@@ -105,6 +109,7 @@ export class TrainingformComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
+    document.getElementById('main_hd').style.display = "none";
     this.href = this.router.url;
     this.trainingform = this.href.split("/").pop();
     console.log(this.trainingform);
@@ -131,6 +136,7 @@ export class TrainingformComponent implements OnInit {
   convertResponseToPost(formValue) {
 
     const finalResponse = {
+      "name": this.form.controls['participantName'].value.id_name,
       "training": this.trainingName,
       "trainers": this.trainerNames,
       "location": this.trainingLocation,

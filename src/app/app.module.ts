@@ -23,6 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule, MatSelectModule, MatOptionModule, MatButtonModule,MatCardModule, MatDialogModule, MatToolbarModule, MatIconModule } from '@angular/material';
 import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 import { AnalysisComponent } from './analysis/analysis.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { TrainingQualificationComponent } from './charts/training-qualification/training-qualification.component';
+import { TrainingExperienceComponent } from './charts/training-experience/training-experience.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home' , pathMatch: 'full'},
@@ -31,7 +34,10 @@ const routes: Routes = [
   { path: 'form', component: FormComponent },
   { path: 'createtraining', component: CreatetrainingComponent },
   { path: 'traininglist', component: ListTrainingsComponent },
-  { path: 'analysis', component: BarChartComponent },
+  { path: 'analysis', component: PieChartComponent },
+  { path: 'content', component: BarChartComponent },
+  { path: 'trainingqualification', component: TrainingQualificationComponent },
+  { path: 'trainingexperience', component: TrainingExperienceComponent },
   { path: 'trainingform/:id', component: TrainingformComponent },
   { path: 'success', component: SuccessComponent }
 ];
@@ -48,7 +54,10 @@ const routes: Routes = [
     SelectboxPipe,
     AddTrainingComponent,
     BarChartComponent,
-    AnalysisComponent
+    AnalysisComponent,
+    PieChartComponent,
+    TrainingQualificationComponent,
+    TrainingExperienceComponent
   ],
   imports: [
     BrowserModule,

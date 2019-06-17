@@ -1,5 +1,7 @@
+
 <div>
-  <div class="container mx-auto my-3">
+  <div class="container mx-auto my-0">
+    <img src="assets/images/header.png" alt="header" srcset="" width="100%">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div>
         <div class="my-3 float-left col-lg-6">
@@ -8,33 +10,33 @@
           </h4>
           
         </div>
-        <div class="float-right mx-3">
+        <!-- <div class="float-right mx-3">
           <img src="assets/images/eb logo.jpg" alt="eb_logo" srcset="" height=100px width=100px>
-        </div>
+        </div> -->
       </div>
-      <div class="my-3 float-left col-lg-12">
-          <p><label for="name">Your Name: </label></p>
-          <input type="text" name="name" id="id_name"> <Small>(optional)</Small>
+      <div class="my-3 float-left col-lg-12" formGroupName="participantName">
+          <p><label for="id_name">Your Name: </label></p>
+          <input type="text"  name="id_name" id="id_name" formControlName="id_name" > <Small>(optional)</Small>
           </div>
-      <div class="my-3 float-left col-lg-12">
+      <div class="my-3 float-left col-lg-6">
           <p>Training Name</p>
           <div formGroupName="training_n">
             <input type="text" name="training_name" id="training_name" formControlName="training_name"  readonly [value]=TrainingDetails?.training>
           </div>
         </div>
-        <div class="my-3 float-left col-lg-12">
+        <div class="my-3 float-left col-lg-6">
             <p>Trainer Names</p>
             <div formGroupName="trainer_n">
               <input type="text" name="trainer_names" id="trainer_names" formControlName="trainer_names"  readonly [value]=TrainingDetails?.trainers>
             </div>
           </div>
-          <div class="my-3 float-left col-lg-12">
+          <div class="my-3 float-left col-lg-6">
               <p>Location</p>
               <div formGroupName="training_location">
                 <input type="text" name="location_name" id="location_name" formControlName="location_name"  readonly [value]=TrainingDetails?.location>
               </div>
             </div>
-            <div class="my-3 float-left col-lg-12">
+            <div class="my-3 float-left col-lg-6">
                 <p>Date</p>
                 <div formGroupName="training_date">
                   <input type="text" name="t_date" id="t_date" formControlName="t_date"  readonly [value]=trainingDate>
@@ -381,5 +383,8 @@
         <button class="btn btn-success" type="submit"> Submit </button>
       </div>
     </form>
+
+    <img src="assets/images/footer2.png" alt="header" srcset="" width="100%">
+    <img src="assets/images/footer1.png" alt="header" srcset="" width="100%">
   </div>
 </div>
