@@ -12,3 +12,30 @@
 .toolbar-spacer{
     flex: 1 1 auto;
 }
+
+body{
+    padding-top: 100px;
+}
+
+.graph_container{
+    margin-left: 400px;
+}
+
+.graph_container h4{
+    text-align: center;
+}
+
+.graph_container div{
+    width: 400px;
+    margin: 0px auto;
+    margin-top: 50px;
+}
+
+
+
+.axis--x text{
+    transform: rotate(-5deg);
+    /* width: 100px !important; */
+    /* word-wrap: none !important; */
+    word-wrap: break-word !important;
+}

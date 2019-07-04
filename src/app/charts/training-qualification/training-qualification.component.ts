@@ -115,7 +115,7 @@ this.drawGraph();
       this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
       this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
       this.x.domain(data.map((d) => d.Trainers));
-      this.y.domain([0, d3Array.max(data, (d) => d["Rating"])]);
+      this.y.domain([0, 5]);
       this.drawAxis(data);
   }
 
@@ -147,7 +147,7 @@ this.drawGraph();
           .attr('class', 'bar')
           .attr('x', (d) => this.x(d.Trainers) )
           .attr('y', (d) => this.y(d.Rating) )
-          .attr('width', 50)
+          .attr('width', this.x.bandwidth())
           .attr('height', (d) => this.height - this.y(d.Rating));
   }
 }

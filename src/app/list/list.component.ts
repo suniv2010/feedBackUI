@@ -88,6 +88,9 @@ export class ListComponent implements OnInit {
         }
       }
      delete this.feedBackList[i].questions; 
+     delete this.feedBackList[i].id; 
+     delete this.feedBackList[i].createdAt; 
+     delete this.feedBackList[i].updatedAt; 
     Object.assign(this.feedBackList[i], question_json); 
 
     }

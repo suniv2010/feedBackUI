@@ -26,10 +26,11 @@ import { AnalysisComponent } from './analysis/analysis.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { TrainingQualificationComponent } from './charts/training-qualification/training-qualification.component';
 import { TrainingExperienceComponent } from './charts/training-experience/training-experience.component';
+import { GraphicalpresentationComponent } from './graphicalpresentation/graphicalpresentation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home' , pathMatch: 'full'},
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: ListTrainingsComponent },
   { path: 'list', component: ListComponent },
   { path: 'form', component: FormComponent },
   { path: 'createtraining', component: CreatetrainingComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
   { path: 'trainingqualification', component: TrainingQualificationComponent },
   { path: 'trainingexperience', component: TrainingExperienceComponent },
   { path: 'trainingform/:id', component: TrainingformComponent },
-  { path: 'success', component: SuccessComponent }
+  { path: 'success', component: SuccessComponent },
+  { path: 'graphs', component: GraphicalpresentationComponent }
 ];
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ const routes: Routes = [
     AnalysisComponent,
     PieChartComponent,
     TrainingQualificationComponent,
-    TrainingExperienceComponent
+    TrainingExperienceComponent,
+    GraphicalpresentationComponent
   ],
   imports: [
     BrowserModule,

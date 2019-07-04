@@ -1,2 +1,56 @@
+<!-- <div class="col-lg-2"><a href="/home">home</a></div> -->
+<router-outlet>
+        <!-- <div style="height: 100px;" id="main_hd" *ngIf="!router.url.includes('trainingform')">
+                <div class="my-3 float-left col-lg-12" style="position: fixed;top:0px;left: 0px;z-index: 1000;background: #fff;margin-top: 0px !important;padding-top: 10px;">
+                  <a href="/home"><img src="/assets/images/eb-logo-gray.png"/></a>
+                  <hr/>
+                  
+                </div>
+                
+              </div>
 
-<router-outlet></router-outlet>
+
+              ========== -->
+              <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top nav-tabs" *ngIf="!router.url.includes('trainingform')" >
+                  <!-- Brand -->
+                  <a class="navbar-brand" href="/home"><img src="/assets/images/eb-logo-gray.png" alt="Logo" /></a>
+                
+                  <!-- Toggler/collapsibe Button -->
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                
+                  <!-- Navbar links -->
+                  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                      <li class="nav-item mx-2">
+                        <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">Trainings</a>
+                      </li>
+                      <li class="nav-item mx-2">
+                        <a class="nav-link"  [routerLink]="['/list']" [routerLinkActive]="['active']">Feed back Report</a>
+                      </li>
+                    </ul>
+                  </div> 
+                </nav>
+
+                <ul class="nav flex-column float-left side_nav" *ngIf="router.url == '/analysis' || router.url == '/content' || router.url == '/trainingexperience' || router.url == '/trainingqualification'">
+                    
+                  <li class="nav-item" style="border-bottom: 2px solid #fff">
+                      <a class="nav-link disabled my-4" href="#">Graphical Representation</a>
+                    </li>
+                  <li class="nav-item" [routerLinkActive]="['isactive']">
+                      <a class="nav-link my-3"  [routerLink]="['/content']" >Training Content</a>
+                    </li>
+                    <li class="nav-item"  [routerLinkActive]="['isactive']">
+                      <a class="nav-link my-3" [routerLink]="['/trainingqualification']">Trainer Qualification</a>
+                    </li>
+                    <li class="nav-item" [routerLinkActive]="['isactive']">
+                      <a class="nav-link my-3" [routerLink]="['/trainingexperience']" >Training Experience</a>
+                    </li>
+                    <li class="nav-item" [routerLinkActive]="['isactive']">
+                        <a class="nav-link my-3" [routerLink]="['/analysis']" >Training Expectation</a>
+                      </li>
+                    
+                  </ul>
+              
+</router-outlet>

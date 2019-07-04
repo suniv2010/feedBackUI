@@ -1,0 +1,50 @@
+.active{
+    font-weight: bold;
+    color: #00A200 !important;
+}
+
+nav{
+    padding-bottom: 0px;
+}
+
+nav .nav-item{
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.nav-link:hover{
+    font-weight: bold;
+    color: #00A200 !important;
+}
+
+.side_nav{
+    width: 350px;
+    background: #777777;
+    height: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 50px;
+}
+
+.side_nav li a{
+    color: #fff !important; 
+    font-size: 20px;
+ }
+
+ .nav-link.disabled{
+    color: #fff !important;
+    text-align: center;
+    font-size: 25px !important;
+    font-weight: bold;
+}
+
+.nav-item:hover{
+    background: #333;
+    
+}
+
+
+.isactive{
+    background: #00A200;
+    font-weight: bold;
+}

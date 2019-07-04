@@ -1,33 +1,33 @@
-<mat-card>
-  <mat-card-header>
-    <mat-toolbar class="toolbar">
-      <mat-card-title>Training List</mat-card-title>
-      <span class="toolbar-spacer"></span>
-      <mat-icon (click)="addTraining()">add</mat-icon>
-    </mat-toolbar>
-  </mat-card-header>
 
-  <mat-card-content>
+
+       
+
+
+
     <div class="container">
+      <div class="my-3">
+        <div class="col-8 float-left"><h4>Training List</h4></div>
+        <button type="button" (click)="addTraining()" class="btn btn-success float-right">Add new training</button>
+        <div class="clearfix"></div>
+        </div>
       <table class="table">
         <thead>
           <th>Training Name</th>
           <th>Trainers</th>
           <th>Location</th>
           <th>Date</th>
+          <th colspan="2" style="text-align: center">Actions</th>
         </thead>
 
         <tr *ngFor="let training of TrainingList; let i = index">
-          <td><a [routerLink]="['/trainingform',training?.id]">Training Name: {{training?.training}}</a></td>
+          <td><a [routerLink]="['/trainingform',training?.id]">{{training?.training}}</a></td>
           <td>{{training?.trainers}}</td>
           <td>{{training?.location}} </td>
-          <td><p *ngIf = "training?.to_date == training?.from_date"><b>Date:</b> {{training?.from_date}} </p>
-            <p *ngIf = "training?.to_date != training?.from_date"><b>Date:</b> {{training?.from_date}} to {{training?.to_date}}</p></td>
-          <td><mat-icon (click)="editTraining(training?.id)">edit</mat-icon></td>
-          <td><mat-icon (click)="deleteTraining(training?.id)">delete</mat-icon></td>
+          <td><p *ngIf = "training?.to_date == training?.from_date">{{training?.from_date}} </p>
+            <p *ngIf = "training?.to_date != training?.from_date">{{training?.from_date}} to {{training?.to_date}}</p></td>
+          <td><button type="button" (click)="editTraining(training?.id)" class="btn btn-default material-icons" style="color: #00A200; font-size:25px">edit</button></td>
+          <td><button type="button" (click)="deleteTraining(training?.id)" class="btn btn-default material-icons" style="color: red; font-size:25px">&#xe92b;</button></td>
       
         </tr>
       </table>
     </div>
-  </mat-card-content>
-</mat-card>

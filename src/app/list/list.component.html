@@ -5,6 +5,7 @@
           Feedback Report
         </h4>
         <button class="btn btn-success download-btn float-right" (click)="exportAsXLSX()">Download Excel Report</button>
+        <a href="/content" class="btn btn-success graph-btn float-right">Graphical Presentaction</a>
       </div>
       
 
@@ -45,7 +46,7 @@
 
   <tbody>
     <tr *ngFor="let list of feedBackListTabulated | selectbox: selectedValue; let i = index" >
-      <td>{{i}}</td>
+      <td>{{i+1}}</td>
 
       <td>{{list.training}}</td>
       <td>{{list.trainers}}</td>

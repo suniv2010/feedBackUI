@@ -12,31 +12,28 @@
             </h4>
         
           </div>
-          <div class="my-3 float-left col-lg-2">
-            <mat-dialog-actions>
-              <button mat-button [mat-dialog-close]="true">Close</button>
-            </mat-dialog-actions>
-        
-          </div>
+          
   
         </div>
        
-        <div class="my-3 float-left col-lg-12">
-          <p>Training Name</p>
+        <div class="my-3 float-left col-lg-6">
+          <h6>Training Name</h6>
         
         
           
           <div formGroupName="training">
 
-              <mat-form-field>
-                  <mat-select  name="training_name" id="training_name"  formControlName="training_name" >
+              <mat-form-field style="width: 100%">
+                  <mat-select placeholder="Select Training"   name="training_name" id="training_name"  formControlName="training_name" >
                     <mat-option *ngFor="let training of trainingList" [value]="training.training">{{training.training}}
                         
                   </mat-option>
                   <mat-option disabled="disabled" class="filter-option">
                       <form [formGroup]="training">
-                          <div formGroupName="newTraining">
-                              <input name="new_training" id="new_training" formControlName="new_training" placeholder="Enter Value" ><button (click)="addTraining()">add</button>
+                         
+                          <div formGroupName="newTraining" class="form-group my-2">
+                              <input name="new_training" id="new_training" formControlName="new_training" placeholder="Enter Value" class="form-control col-lg-10 float-left" ><button type="button" (click)="addTraining()" class="btn btn-secondary float-left ml-2" >add</button>
+                              <div class="clearfix"></div>
                           </div>  
                     </form>
                       <!--<mat-option (click)="selectAll(yearSelect, years)" #checkAll> Select All-->
@@ -54,26 +51,28 @@
               
           </div>
         </div>
-        <div class="my-3 float-left col-lg-12">
-          <p>Trainers</p>
+        <div class="my-3 float-left col-lg-6">
+          <h6>Trainers</h6>
           <div formGroupName="trainers">
             <!-- <input type="text" name="trainer_name" id="trainer_name" formControlName="trainer_name" required> -->
   
 
-            <mat-form-field>
-              <mat-select multiple placeholder="Select Level of Education" formControlName="trainer_name" >
+            <mat-form-field style="width: 100%">
+              <mat-select multiple placeholder="Select Trainers" formControlName="trainer_name" >
                 <mat-option *ngFor="let trainer of trainerList" [value]="trainer?.trainers">
                 {{trainer?.trainers}}
               </mat-option>
 
             
 
-
-              <form [formGroup]="trainerForm">
+              <!-- <mat-option disabled="disabled" class="filter-option"> -->
+              <form [formGroup]="trainerForm" class="form-group ml-3 my-2">
                   <div formGroupName="newTainer">
-                      <input name="new_trainer" id="new_trainer" formControlName="new_trainer" placeholder="Enter Value" ><button (click)="addTrainer()">add</button>
+                      <input name="new_trainer" id="new_trainer" class="form-control col-lg-10 float-left" formControlName="new_trainer" placeholder="Enter Value" ><button type="button" (click)="addTrainer()" class="btn btn-secondary float-left ml-2">add</button>
+                      <div class="clearfix"></div>
                   </div>  
             </form>
+            <!-- </mat-option> -->
               </mat-select>
             </mat-form-field>
 
@@ -85,25 +84,28 @@
           </div>
         </div>
         <div class="my-3 float-left col-lg-6">
-            <p>Location</p>
+            <h6>Location</h6>
             <div formGroupName="location">
-              <input type="text" name="location_name" id="location_name" formControlName="location_name" required>
+              <input type="text" name="location_name" id="location_name" class="form-control" formControlName="location_name" required>
             </div>
           </div>
-          <div class="my-3 float-left col-lg-3">
-              <p>From Date</p>
+          <div class="my-3 float-left col-lg-3 form-group">
+              <h6>From Date</h6>
               <div formGroupName="sel_from_date">
-                <input type="date" name="from_date" id="from_date" formControlName="from_date" required>
+                <input type="date" name="from_date" id="from_date"  class="form-control" formControlName="from_date" required>
               </div>
             </div>
-            <div class="my-3 float-left col-lg-3">
-                <p>To Date</p>
+            <div class="my-3 float-left col-lg-3 form-group">
+                <h6>To Date</h6>
                 <div formGroupName="sel_to_date">
-                  <input type="date" name="to_date" id="to_date" formControlName="to_date" required>
+                  <input type="date" name="to_date" id="to_date" class="form-control" formControlName="to_date" required>
                 </div>
               </div>
         <div class="my-3 float-left col-lg-12">
-          <button class="btn btn-success" type="submit"> Submit </button>
+          <button class="btn btn-success float-left my-2 mr-2" type="submit"> Submit </button>
+          <mat-dialog-actions>
+              <button type="button" [mat-dialog-close]="true" class="btn  btn-secondary float-left">Close</button>
+            </mat-dialog-actions>
         </div>
       </form>
     </div>

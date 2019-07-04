@@ -52,23 +52,23 @@ export class TrainingformComponent implements OnInit {
       t_date: ['', Validators.required],
     }),
     question_1: this.fb.group({
-      quality: ['', Validators.required],
+      quality: ['0', Validators.required],
       quality_comment: [''],
-      value: ['', Validators.required],
+      value: ['0', Validators.required],
       value_comment: [''],
-      relevance: ['', Validators.required],
+      relevance: ['0', Validators.required],
       relevance_comment: [''],
-      logic: ['', Validators.required],
+      logic: ['0', Validators.required],
       logic_comment: ['']
     }),
     question_2: this.fb.group({
-      presentation: ['', Validators.required],
+      presentation: ['0', Validators.required],
       presentation_comment: [''],
-      understanding: ['', Validators.required],
+      understanding: ['0', Validators.required],
       understanding_comment: [''],
-      expertise: ['', Validators.required],
+      expertise: ['0', Validators.required],
       expertise_comment: [''],
-      interaction: ['', Validators.required],
+      interaction: ['0', Validators.required],
       interaction_comment: ['']
     }),
     question_3: this.fb.group({
@@ -92,13 +92,13 @@ export class TrainingformComponent implements OnInit {
       product_comment: ['', Validators.required],
     }),
     question_8: this.fb.group({
-      recommendation: ['', Validators.required],
+      recommendation: ['0', Validators.required],
       recommendation_comment: [''],
-      organization: ['', Validators.required],
+      organization: ['0', Validators.required],
       organization_comment: [''],
-      applicability: ['', Validators.required],
+      applicability: ['0', Validators.required],
       applicability_comment: [''],
-      experience: ['', Validators.required],
+      experience: ['0', Validators.required],
       experience_comment: ['']
     }),
     question_9: this.fb.group({
@@ -109,7 +109,7 @@ export class TrainingformComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
-    document.getElementById('main_hd').style.display = "none";
+    // document.getElementById('main_hd').style.display = "none";
     this.href = this.router.url;
     this.trainingform = this.href.split("/").pop();
     console.log(this.trainingform);
