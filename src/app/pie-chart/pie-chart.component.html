@@ -1,8 +1,13 @@
 <!-- <h2>{{ title }}</h2> -->
-<div class="graph_container">
-<svg width="960" height="500"></svg>
+<div class="graph_container justify-content-center">
+  <div>
+      <h4>Did the training meet expectation?
+        </h4>
+    <svg width="330" height="400"></svg>
+    <ul>
+        <li  *ngFor="let comment of comment;" >{{comment}}</li>
+      </ul>
+  </div>
 
-<ul>
-  <li  *ngFor="let comment of comment;" >{{comment}}</li>
-</ul>
+
 </div>
