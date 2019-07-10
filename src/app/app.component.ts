@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrderModule } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-root',

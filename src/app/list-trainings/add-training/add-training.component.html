@@ -17,7 +17,7 @@
         </div>
        
         <div class="my-3 float-left col-lg-6">
-          <h6>Training Name</h6>
+          <!-- <h6>Training Name</h6> -->
         
         
           
@@ -28,7 +28,7 @@
                     <mat-option *ngFor="let training of trainingList" [value]="training.training">{{training.training}}
                         
                   </mat-option>
-                  <mat-option disabled="disabled" class="filter-option">
+                  <!-- <mat-option disabled="disabled" class="filter-option">
                       <form [formGroup]="training">
                          
                           <div formGroupName="newTraining" class="form-group my-2">
@@ -36,8 +36,17 @@
                               <div class="clearfix"></div>
                           </div>  
                     </form>
-                      <!--<mat-option (click)="selectAll(yearSelect, years)" #checkAll> Select All-->
-                    </mat-option>
+                      <mat-option (click)="selectAll(yearSelect, years)" #checkAll> Select All
+                    </mat-option> -->
+                    <mat-option disabled="disabled" class="filter-option">
+                      
+                           
+                            <div class="form-group my-2">
+                               <button type="button"  class="btn btn-secondary " style="width: 100%;"  (click)="showTrainingPopUp()">Add New Training</button>
+                                <div class="clearfix"></div>
+                            </div>  
+                        <!--<mat-option (click)="selectAll(yearSelect, years)" #checkAll> Select All-->
+                      </mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -52,7 +61,7 @@
           </div>
         </div>
         <div class="my-3 float-left col-lg-6">
-          <h6>Trainers</h6>
+          <!-- <h6>Trainers</h6> -->
           <div formGroupName="trainers">
             <!-- <input type="text" name="trainer_name" id="trainer_name" formControlName="trainer_name" required> -->
   
@@ -66,13 +75,23 @@
             
 
               <!-- <mat-option disabled="disabled" class="filter-option"> -->
-              <form [formGroup]="trainerForm" class="form-group ml-3 my-2">
+              <!-- <form [formGroup]="trainerForm" class="form-group ml-3 my-2">
                   <div formGroupName="newTainer">
                       <input name="new_trainer" id="new_trainer" class="form-control col-lg-10 float-left" formControlName="new_trainer" placeholder="Enter Value" ><button type="button" (click)="addTrainer()" class="btn btn-secondary float-left ml-2">add</button>
                       <div class="clearfix"></div>
                   </div>  
-            </form>
+            </form> -->
             <!-- </mat-option> -->
+          
+                <!-- <form [formGroup]="trainerForm"> -->
+                   
+                    <div class="form-group ml-3 my-2">
+                       <button type="button"  class="btn btn-secondary " style="width: 100%;"  (click)="showTrainerPopUp()">Add New Trainer</button>
+                        <div class="clearfix"></div>
+                    </div>  
+              <!-- </form> -->
+                <!--<mat-option (click)="selectAll(yearSelect, years)" #checkAll> Select All-->
+              
               </mat-select>
             </mat-form-field>
 
@@ -112,3 +131,56 @@
   </div>
   
 </mat-dialog-content>
+
+<div class="modal" id="addTrainingPopUp" *ngIf="trainingPopUp">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add New Training</h4>
+          <button type="button" class="close"  (click)="trainingPopUp = false" >&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form [formGroup]="training">
+                         
+                <div formGroupName="newTraining" class="form-group my-2">
+                    <input name="new_training" id="new_training" formControlName="new_training" placeholder="Enter Training" class="form-control col-lg-10 float-left" ><button type="button" (click)="addTraining()" class="btn btn-secondary float-left ml-2" >add</button>
+                    <div class="clearfix"></div>
+                </div>  
+          </form>
+        </div>
+  
+       
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="addTrainerPopUp" *ngIf="trainerPopUp">
+      <div class="modal-dialog">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Add New Trainer</h4>
+            <button type="button" class="close"  (click)="trainerPopUp = false" >&times;</button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+              <form [formGroup]="trainerForm" class="form-group ml-3 my-2">
+                  <div formGroupName="newTainer">
+                      <input name="new_trainer" id="new_trainer" class="form-control col-lg-10 float-left" formControlName="new_trainer" placeholder="Enter Trainer" ><button type="button" (click)="addTrainer()" class="btn btn-secondary float-left ml-2">add</button>
+                      <div class="clearfix"></div>
+                  </div>  
+            </form>
+          </div>
+    
+
+    
+        </div>
+      </div>
+    </div>

@@ -3,7 +3,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 .toolbar{
-    background-color:  #4B0082;
+    background-color:  #00A200;
     border-radius: 5px;
     color: white;
 
@@ -31,11 +31,184 @@ body{
     margin-top: 50px;
 }
 
+svg .axis--x .tick {
+
+    /* display: none; */
+}
+
 
 
 .axis--x text{
     transform: rotate(-5deg);
     /* width: 100px !important; */
     /* word-wrap: none !important; */
+    width: 100px !important;
     word-wrap: break-word !important;
+   
+}
+
+.tooltip{
+    background: #fff;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label{
+    color: #00A200;
+}
+
+.mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate, .mat-warn .mat-pseudo-checkbox-checked,
+.mat-warn .mat-pseudo-checkbox-indeterminate {
+	background: #00A200;
+}
+
+
+.mat-badge-content {
+	color: #fff;
+	background: #00A200
+}
+
+
+.mat-button.mat-primary,
+.mat-icon-button.mat-primary,
+.mat-stroked-button.mat-primary {
+	color: #00A200
+}
+
+
+.mat-button.mat-primary .mat-button-focus-overlay,
+.mat-icon-button.mat-primary .mat-button-focus-overlay,
+.mat-stroked-button.mat-primary .mat-button-focus-overlay {
+	background-color: #00A200;
+}
+
+.mat-fab.mat-primary,
+.mat-flat-button.mat-primary,
+.mat-mini-fab.mat-primary,
+.mat-raised-button.mat-primary {
+	background-color: #00A200
+}
+
+.mat-checkbox-checked.mat-primary .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-primary .mat-checkbox-background {
+	background-color: #00A200
+}
+
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-primary .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-primary .mat-ripple-element {
+	background: #00A200
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+	background-color: #00A200;
+	color: #fff
+}
+
+.mat-calendar-body-selected {
+	background-color: #00A200;
+	color: #fff
+}
+
+.mat-datepicker-toggle-active {
+	color: #00A200
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+	color: #00A200
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+	background-color: #00A200
+}
+
+.mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid) .mat-form-field-infix::after {
+	color: #00A200
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+	color: #00A200
+}
+
+.mat-icon.mat-primary {
+	color: #00A200
+}
+
+.mat-input-element {
+	caret-color: #00A200
+}
+
+.mat-progress-bar-fill::after {
+	background-color: #00A200
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+	stroke: #00A200
+}
+
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+	border-color: #00A200
+}
+
+.mat-radio-button.mat-primary .mat-radio-inner-circle,
+.mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
+	background-color: #00A200
+}
+
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+	color: #00A200
+}
+
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+	background-color: #00A200
+}
+
+.mat-slide-toggle.mat-primary.mat-checked .mat-ripple-element {
+	background-color: #00A200
+}
+
+.mat-primary .mat-slider-thumb,
+.mat-primary .mat-slider-thumb-label,
+.mat-primary .mat-slider-track-fill {
+	background-color: #00A200
+}
+
+.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+	background-color: #00A200;
+	color: #fff
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+	background-color: #00A200
+}
+
+.mat-tab-group.mat-background-primary .mat-tab-header,
+.mat-tab-group.mat-background-primary .mat-tab-links,
+.mat-tab-nav-bar.mat-background-primary .mat-tab-header,
+.mat-tab-nav-bar.mat-background-primary .mat-tab-links {
+	background-color: #00A200
+}
+
+.mat-toolbar.mat-primary {
+	background: #00A200;
+	color: #fff
+}
+
+
+
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+    color: #00A200;
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-ripple, .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent, .mat-form-field-appearance-legacy .mat-form-field-underline{
+    background: #00A200 !important;
 }

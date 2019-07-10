@@ -1,0 +1,7 @@
+.modal-dialog{
+    top:100px;
+}
+
+.modal{
+    display: block !important; z-index: 2000 !important;
+}

@@ -2,17 +2,26 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { HttpService } from '../shared/http.service';
 import { AddTrainingComponent } from '../list-trainings/add-training/add-training.component';
 import { MatDialog,  MatDialogConfig, MatDialogRef} from "@angular/material";
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-list-trainings',
   templateUrl: './list-trainings.component.html',
   styleUrls: ['./list-trainings.component.css']
 })
+
+
 export class ListTrainingsComponent implements OnInit {
   isPopupOpened = true;
   TrainingList = [];
-  constructor(private httpService: HttpService, private dialog: MatDialog) { }
+  trainingname ='';
+  trainingId=0;
+  confirmStatus = false;
+  order: string = 'createdAt';
+
+  constructor(private httpService: HttpService, private dialog: MatDialog, private orderPipe: OrderPipe) { }
   dialogRef: MatDialogRef<AddTrainingComponent>;
+
   ngOnInit() {
     this.httpService.getTrainingList().subscribe(response => {
       console.log(response);
@@ -34,36 +43,38 @@ export class ListTrainingsComponent implements OnInit {
   }
 
   editTraining(id: number) {
-    console.log(id);
     this.isPopupOpened = true;
-    
     this.httpService.editTraining(id).subscribe(training => {
 
       const dialogRef = this.dialog.open(AddTrainingComponent, {
         data: training
       });
-  
-  
+
       dialogRef.afterClosed().subscribe(result => {
         this.isPopupOpened = false;
       });
-
     });
-    
-    
   }
 
-  deleteTraining(id){
-    this.httpService.deleteTraining(id)
+  showConfirmPopUp(id, trainingname) {
+    this.confirmStatus = true;
+    this.trainingId = id;
+    this.trainingname = trainingname;
+  }
+
+  cancelDelete(){
+    this.confirmStatus = false;
+  }
+
+  deleteTraining(){
+    this.confirmStatus = false;
+    this.httpService.deleteTraining(this.trainingId)
       .subscribe(a => {
       }, error => {
           if ( error.status == 200 ) {
-           
               this.httpService.getTrainingList().subscribe(response => {
                 console.log(response);
                 this.TrainingList = response as [];
-               //window.location.reload();
-             
             });
           }
       });

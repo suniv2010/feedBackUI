@@ -153,6 +153,10 @@ export class TrainingExperienceComponent implements OnInit {
   }
 
   private drawBars(data) {
+    const div = d3.select("body").append('div')
+    .attr('class', 'tooltip')
+    .style('opacity', 0);
+
     this.g.selectAll('.bar')
       .data(data)
       .enter().append('rect')
@@ -160,6 +164,15 @@ export class TrainingExperienceComponent implements OnInit {
       .attr('x', (d) => this.x(d.Training))
       .attr('y', (d) => this.y(d.Rating))
       .attr('width', this.x.bandwidth())
-      .attr('height', (d) => this.height - this.y(d.Rating));
+      .attr('height', (d) => this.height - this.y(d.Rating))
+      .on('mouseover', (d) => {
+        div.style('opacity', .9);
+        div.html('<b>Rating: </b>' + d.Rating + '<br/><b>' + d.Training + '</b>')
+           .style('left', (d3.event.pageX) + 'px')
+           .style('top', (d3.event.pageY - 28) + 'px');
+})
+.on('mouseout', (d) => {
+          div.style('opacity', 0);
+});
   }
 }

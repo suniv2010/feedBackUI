@@ -27,6 +27,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { TrainingQualificationComponent } from './charts/training-qualification/training-qualification.component';
 import { TrainingExperienceComponent } from './charts/training-experience/training-experience.component';
 import { GraphicalpresentationComponent } from './graphicalpresentation/graphicalpresentation.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home' , pathMatch: 'full'},
@@ -76,7 +77,8 @@ const routes: Routes = [
     MatSelectModule,
     MatListModule,
     MatButtonModule,
-    MatOptionModule
+    MatOptionModule,
+    OrderModule
 
   ],
   exports: [SelectboxPipe],

@@ -19,15 +19,31 @@
           <th colspan="2" style="text-align: center">Actions</th>
         </thead>
 
-        <tr *ngFor="let training of TrainingList; let i = index">
+        <tr *ngFor="let training of TrainingList | orderBy: order :true ">
           <td><a [routerLink]="['/trainingform',training?.id]">{{training?.training}}</a></td>
           <td>{{training?.trainers}}</td>
           <td>{{training?.location}} </td>
           <td><p *ngIf = "training?.to_date == training?.from_date">{{training?.from_date}} </p>
             <p *ngIf = "training?.to_date != training?.from_date">{{training?.from_date}} to {{training?.to_date}}</p></td>
           <td><button type="button" (click)="editTraining(training?.id)" class="btn btn-default material-icons" style="color: #00A200; font-size:25px">edit</button></td>
-          <td><button type="button" (click)="deleteTraining(training?.id)" class="btn btn-default material-icons" style="color: red; font-size:25px">&#xe92b;</button></td>
+          <td><button type="button" (click)="showConfirmPopUp(training?.id,training?.training)" class="btn btn-default material-icons" style="color: red; font-size:25px">&#xe92b;</button></td>
       
         </tr>
       </table>
     </div>
+
+    <div id="confirmOverlay" *ngIf="confirmStatus">
+        <div id="confirmBox">
+    
+            <h1>Delete Training</h1>
+            <p>Are you sure you want to delete <span>{{trainingname}} </span> ?</p>
+    
+            <div id="confirmButtons">
+                <a class="button blue" (click)="deleteTraining()" href="#">Yes<span></span></a>
+                <a class="button gray" (click)="cancelDelete()" href="#">No<span></span></a>
+            </div>
+        </div>
+    </div>
+
+
+   

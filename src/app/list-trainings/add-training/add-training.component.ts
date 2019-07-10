@@ -19,6 +19,8 @@ export class AddTrainingComponent {
   trainingList = [];
   trainerList = [];
   TrainingList = [];
+  trainingPopUp = false;
+  trainerPopUp = false;
 
   training = this.fb.group({
     newTraining: this.fb.group({
@@ -113,11 +115,21 @@ export class AddTrainingComponent {
     }
 
   }
+
+  showTrainingPopUp(){
+    this.trainingPopUp = true;
+  }
+
+  showTrainerPopUp(){
+    this.trainerPopUp = true;
+  }
+
+
   addTraining(tr) {
     let trainingObj = {
       "training": this.training.controls['newTraining'].value.new_training
     };
-
+    this.trainingPopUp = false;
     this.httpService.addTrainingName(trainingObj)
       .subscribe(a => {
         console.log(a);
@@ -138,6 +150,7 @@ export class AddTrainingComponent {
       "trainers": this.trainerForm.controls['newTainer'].value.new_trainer
     };
 
+    this.trainerPopUp = false;
     this.httpService.addTrainerName(trainerObj)
       .subscribe(a => {
         console.log(a);

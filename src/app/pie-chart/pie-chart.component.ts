@@ -71,7 +71,7 @@ export class PieChartComponent implements OnInit {
 
     private initSvg() {
         this.color = d3Scale.scaleOrdinal()
-            .range(['#00A200', '#3F3F3F']);
+            .range(['#00A200', '#777777']);
         this.arc = d3Shape.arc()
             .outerRadius(this.radius - 10)
             .innerRadius(0);
