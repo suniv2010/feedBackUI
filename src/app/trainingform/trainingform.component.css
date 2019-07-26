@@ -37,3 +37,11 @@ td>label {
    input[type=text]:focus{
      outline: none
    }
+
+   .err_class{
+     font-size: 10px;
+     color: red;
+     font-weight: bold;
+     text-align: left;
+     padding-left: 50px;
+   }

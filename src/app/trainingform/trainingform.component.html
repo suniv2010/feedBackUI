@@ -73,7 +73,7 @@
                 <label for="four">4 </label>
                 <input type="radio" id="five" name="quality" formControlName="quality" value=5>
                 <label for="five">5 </label>
-
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_1.value.quality == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="quality_comment"></textarea>
@@ -92,6 +92,7 @@
                 <label for="value_four">4 </label>
                 <input type="radio" id="value_five" name="value" formControlName="value" value=5>
                 <label for="value_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_1.value.value == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="value_comment"></textarea>
@@ -110,6 +111,7 @@
                 <label for="relevance_four">4 </label>
                 <input type="radio" id="relevance_five" name="relevance" formControlName="relevance" value=5>
                 <label for="relevance_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_1.value.relevance == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="relevance_comment"></textarea>
@@ -128,6 +130,7 @@
                 <label for="logic_four">4 </label>
                 <input type="radio" id="logic_five" name="logic" formControlName="logic" value=5>
                 <label for="logic_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_1.value.logic == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows=2 cols="50" formControlName="logic_comment"></textarea>
@@ -166,7 +169,7 @@
                 <label for="presentation_four">4 </label>
                 <input type="radio" id="presentation_five" name="presentation" formControlName="presentation" value=5>
                 <label for="presentation_five">5 </label>
-
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_2.value.presentation == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="presentation_comment"></textarea>
@@ -188,6 +191,7 @@
                 <input type="radio" id="understanding_five" name="understanding" formControlName="understanding"
                   value=5>
                 <label for="understanding_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_2.value.understanding == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="understanding_comment"></textarea>
@@ -206,6 +210,7 @@
                 <label for="expertise_four">4 </label>
                 <input type="radio" id="expertise_five" name="expertise" formControlName="expertise" value=5>
                 <label for="expertise_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_2.value.expertise == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="expertise_comment"></textarea>
@@ -224,6 +229,7 @@
                 <label for="interaction_four">4 </label>
                 <input type="radio" id="interaction_five" name="interaction" formControlName="interaction" value=5>
                 <label for="interaction_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_2.value.interaction == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="interaction_comment"></textarea>
@@ -238,36 +244,41 @@
           <input type="radio" id="expectations_yes" name="expectations" formControlName="expectations" value="yes">
           <label for="expectations_yes"> Yes </label> &nbsp;&nbsp;&nbsp;
           <input type="radio" id="expectations_no" name="expectations" formControlName="expectations" value="no">
-          <label for="expectations_no"> No </label>
+          <label for="expectations_no"> No </label> <span class="err_class" *ngIf="submitted == true && form.controls.question_3.value.expectations == ''">Please select an option</span>
           <p>If yes, what did you like most? If no, where could improvements be made?
 
           </p>
           <input type="text" name="expectations_comment" id="expectations_comment"
             formControlName="expectations_comment">
+            <div class="err_class" *ngIf="submitted == true && form.controls.question_3.value.expectations_comment == ''">Please enter a comment</div>
         </div>
       </div>
       <div class="my-3 float-left col-lg-12">
         <p>4. Which was the most valuable part of the training?</p>
         <div formGroupName="question_4">
           <input type="text" name="valuable_comment" id="valuable_comment" formControlName="valuable_comment" required>
+          <div class="err_class" *ngIf="submitted == true && form.controls.question_4.value.valuable_comment == ''">Please enter a comment</div>
         </div>
       </div>
       <div class="my-3 float-left col-lg-12">
         <p>5. Which topics were missing in the training?</p>
         <div formGroupName="question_5">
           <input type="text" name="missing_comment" id="missing_comment" formControlName="missing_comment" required>
+          <div class="err_class" *ngIf="submitted == true && form.controls.question_5.value.missing_comment == ''">Please enter a comment</div>
         </div>
       </div>
       <div class="my-3 float-left col-lg-12">
         <p>6. How long did you already work with the EB product (month or years)?</p>
         <div formGroupName="question_6">
           <input type="text" name="duration_comment" id="duration_comment" formControlName="duration_comment" required>
+          <div class="err_class" *ngIf="submitted == true && form.controls.question_6.value.duration_comment == ''">Please enter a comment</div>
         </div>
       </div>
       <div class="my-3 float-left col-lg-12">
         <p>7. For which tasks do you use the product?</p>
         <div formGroupName="question_7">
           <input type="text" name="product_comment" id="product_comment" formControlName="product_comment" required>
+          <div class="err_class" *ngIf="submitted == true && form.controls.question_7.value.product_comment == ''">Please enter a comment</div>
         </div>
       </div>
       <div class="my-3 float-left col-lg-12">
@@ -305,7 +316,7 @@
                 <input type="radio" id="recommendation_five" name="recommendation" formControlName="recommendation"
                   value=5>
                 <label for="recommendation_five">5 </label>
-
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_8.value.recommendation == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="recommendation_comment"></textarea>
@@ -324,6 +335,7 @@
                 <label for="organization_four">4 </label>
                 <input type="radio" id="organization_five" name="organization" formControlName="organization" value=5>
                 <label for="organization_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_8.value.organization == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="organization_comment"></textarea>
@@ -345,6 +357,7 @@
                 <input type="radio" id="applicability_five" name="applicability" formControlName="applicability"
                   value=5>
                 <label for="applicability_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_8.value.applicability == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="applicability_comment"></textarea>
@@ -363,6 +376,7 @@
                 <label for="experience_four">4 </label>
                 <input type="radio" id="experience_five" name="experience" formControlName="experience" value=5>
                 <label for="experience_five">5 </label>
+                <div class="err_class" *ngIf="submitted == true && form.controls.question_8.value.experience == ''">Please select a rating</div>
               </td>
               <td>
                 <textarea rows="2" cols="50" formControlName="experience_comment"></textarea>
@@ -377,6 +391,7 @@
           <textarea type="text" name="satisfaction_comment" id="satisfaction_comment"
             formControlName="satisfaction_comment" style="width: 90%" required>
             </textarea>
+            <div class="err_class" *ngIf="submitted == true && form.controls.question_9.value.satisfaction_comment == ''">Please enter a comment</div>
         </div>
       </div>
       <div class="my-3 float-left col-lg-12">

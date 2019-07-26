@@ -53,13 +53,16 @@ export class PieChartComponent implements OnInit {
             this.yesCount++;
           } else{
             this.noCount++;
-            this.comment.push(this.feedBack[i].questions[2].subquestions[0].comments);
+            if(this.feedBack[i].questions[2].subquestions[0].comments != "")
+            {
+                this.comment.push(this.feedBack[i].questions[2].subquestions[0].comments);
+            }
           }
       }
 
 
       console.log(this.yesCount);
-      console.log(this.noCount);
+      console.log(this.comment);
 
      this.YesNoCount = [
         {value: 'Yes', count: this.yesCount},

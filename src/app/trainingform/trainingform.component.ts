@@ -29,51 +29,52 @@ export class TrainingformComponent implements OnInit {
   trainerNames = '';
   trainingLocation = '';
   trainingDate = '';
+  submitted = false;
 
   form = this.fb.group({
     participantName: this.fb.group({
 
-      id_name: ['', Validators.required],
+      id_name: [''],
     }),
     training_n: this.fb.group({
 
-      training_name: ['', Validators.required],
+      training_name: [''],
     }),
     trainer_n: this.fb.group({
 
-      trainer_names: ['', Validators.required],
+      trainer_names: [''],
     }),
     training_location: this.fb.group({
 
-      location_name: ['', Validators.required],
+      location_name: [''],
     }),
     training_date: this.fb.group({
 
-      t_date: ['', Validators.required],
+      t_date: [''],
     }),
     question_1: this.fb.group({
-      quality: ['0', Validators.required],
+      quality: ['', Validators.required],
       quality_comment: [''],
-      value: ['0', Validators.required],
+      value: ['', Validators.required],
       value_comment: [''],
-      relevance: ['0', Validators.required],
+      relevance: ['', Validators.required],
       relevance_comment: [''],
-      logic: ['0', Validators.required],
+      logic: ['', Validators.required],
       logic_comment: ['']
     }),
     question_2: this.fb.group({
-      presentation: ['0', Validators.required],
+      presentation: ['', Validators.required],
       presentation_comment: [''],
-      understanding: ['0', Validators.required],
+      understanding: ['', Validators.required],
       understanding_comment: [''],
-      expertise: ['0', Validators.required],
+      expertise: ['', Validators.required],
       expertise_comment: [''],
-      interaction: ['0', Validators.required],
+      interaction: ['', Validators.required],
       interaction_comment: ['']
     }),
     question_3: this.fb.group({
       expectations: ['', Validators.required],
-      expectations_comment: [''],
+      expectations_comment: ['', Validators.required],
     }),
     question_4: this.fb.group({
 
@@ -92,13 +93,13 @@ export class TrainingformComponent implements OnInit {
       product_comment: ['', Validators.required],
     }),
     question_8: this.fb.group({
-      recommendation: ['0', Validators.required],
+      recommendation: ['', Validators.required],
       recommendation_comment: [''],
-      organization: ['0', Validators.required],
+      organization: ['', Validators.required],
       organization_comment: [''],
-      applicability: ['0', Validators.required],
+      applicability: ['', Validators.required],
       applicability_comment: [''],
-      experience: ['0', Validators.required],
+      experience: ['', Validators.required],
       experience_comment: ['']
     }),
     question_9: this.fb.group({
@@ -130,8 +131,12 @@ export class TrainingformComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(JSON.stringify(this.form.value));
-    this.convertResponseToPost(this.form.value);
+    this.submitted = true;
+    //console.log(JSON.stringify(this.form.value));
+    if(this.form.valid){
+      this.convertResponseToPost(this.form.value);
+    }
+    
   }
   convertResponseToPost(formValue) {
 
