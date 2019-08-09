@@ -159,80 +159,97 @@
             <tr>
               <td>Presentation skills</td>
               <td>
-                <input type="radio" id="presentation_one" name="presentation" formControlName="presentation" value=1>
-                <label for="presentation_one">1</label>
-                <input type="radio" id="presentation_two" name="presentation" formControlName="presentation" value=2>
-                <label for="presentation_two">2 </label>
-                <input type="radio" id="presentation_three" name="presentation" formControlName="presentation" value=3>
-                <label for="presentation_three">3 </label>
-                <input type="radio" id="presentation_four" name="presentation" formControlName="presentation" value=4>
-                <label for="presentation_four">4 </label>
-                <input type="radio" id="presentation_five" name="presentation" formControlName="presentation" value=5>
-                <label for="presentation_five">5 </label>
-                <div class="err_class" *ngIf="submitted == true && form.controls.question_2.value.presentation == ''">Please select a rating</div>
+                  <div *ngFor="let trainerInfo of trainersUnderstandabilityRatingArr; let i=index">
+                      <span class="trainerName"> {{trainerInfo.name}}</span>
+                <input type="radio" id="{{'presentation_one'+i}}" name="{{'presentation_'+i}}"  (change)="handleChange($event,i,'presentation')" value=1>
+                <label for="{{'presentation_one'+i}}">1</label>
+                <input type="radio" id="{{'presentation_two'+i}}" name="{{'presentation_'+i}}"  (change)="handleChange($event,i,'presentation')" value=2>
+                <label for="{{'presentation_two'+i}}">2 </label>
+                <input type="radio" id="{{'presentation_three'+i}}" name="{{'presentation_'+i}}"  (change)="handleChange($event,i,'presentation')" value=3>
+                <label for="{{'presentation_three'+i}}">3 </label>
+                <input type="radio" id="{{'presentation_four'+i}}" name="{{'presentation_'+i}}"  (change)="handleChange($event,i,'presentation')" value=4>
+                <label for="{{'presentation_four'+i}}">4 </label>
+                <input type="radio" id="{{'presentation_five'+i}}" name="{{'presentation_'+i}}"  (change)="handleChange($event,i,'presentation')" value=5>
+                <label for="{{'presentation_five'+i}}">5 </label>
+                </div>
+                <input type="hidden" name="presentation" formControlName="presentation" [value]=presentation_sum>
+
+                <div class="err_class" *ngIf="submitted == true && p_rating == true">Please select a rating</div>
               </td>
               <td>
-                <textarea rows="2" cols="50" formControlName="presentation_comment"></textarea>
+                <textarea rows="2" cols="30" formControlName="presentation_comment"></textarea>
               </td>
             </tr>
             <tr>
               <td>Understandability of explanations</td>
               <td>
-                <input type="radio" id="understanding_one" name="understanding" formControlName="understanding" value=1>
-                <label for="understanding_one">1</label>
-                <input type="radio" id="understanding_two" name="understanding" formControlName="understanding" value=2>
-                <label for="understanding_two">2 </label>
-                <input type="radio" id="understanding_three" name="understanding" formControlName="understanding"
+                  <div *ngFor="let trainerInfo of trainersUnderstandabilityRatingArr; let i=index">
+                      <span class="trainerName"> {{trainerInfo.name}}</span>
+                <input type="radio" id="{{'understanding_one'+i}}" name="{{'understanding_'+i}}"  (change)="handleChange($event,i,'understanding')"  value=1>
+                <label for="{{'understanding_one'+i}}">1</label>
+                <input type="radio" id="{{'understanding_two'+i}}" name="{{'understanding_'+i}}"  (change)="handleChange($event,i,'understanding')" value=2>
+                <label for="{{'understanding_two'+i}}">2 </label>
+                <input type="radio" id="{{'understanding_three'+i}}" name="{{'understanding_'+i}}"  (change)="handleChange($event,i,'understanding')"
                   value=3>
-                <label for="understanding_three">3 </label>
-                <input type="radio" id="understanding_four" name="understanding" formControlName="understanding"
+                <label for="{{'understanding_three'+i}}">3 </label>
+                <input type="radio" id="{{'understanding_four'+i}}" name="{{'understanding_'+i}}"  (change)="handleChange($event,i,'understanding')"
                   value=4>
-                <label for="understanding_four">4 </label>
-                <input type="radio" id="understanding_five" name="understanding" formControlName="understanding"
+                <label for="{{'understanding_four'+i}}">4 </label>
+                <input type="radio" id="{{'understanding_five'+i}}" name="{{'understanding_'+i}}"  (change)="handleChange($event,i,'understanding')"
                   value=5>
-                <label for="understanding_five">5 </label>
-                <div class="err_class" *ngIf="submitted == true && form.controls.question_2.value.understanding == ''">Please select a rating</div>
+                <label for="{{'understanding_five'+i}}">5 </label>
+                  </div>
+                  <input type="hidden" name="understanding" formControlName="understanding" [value]=understanding_sum>
+                <div class="err_class" *ngIf="submitted == true && u_rating == true">Please select a rating</div>
               </td>
               <td>
-                <textarea rows="2" cols="50" formControlName="understanding_comment"></textarea>
+                <textarea rows="2" cols="30" formControlName="understanding_comment"></textarea>
               </td>
             </tr>
             <tr>
               <td>Product expertise</td>
               <td>
-                <input type="radio" id="expertise_one" name="expertise" formControlName="expertise" value=1>
-                <label for="expertise_one">1</label>
-                <input type="radio" id="expertise_two" name="expertise" formControlName="expertise" value=2>
-                <label for="expertise_two">2 </label>
-                <input type="radio" id="expertise_three" name="expertise" formControlName="expertise" value=3>
-                <label for="expertise_three">3 </label>
-                <input type="radio" id="expertise_four" name="expertise" formControlName="expertise" value=4>
-                <label for="expertise_four">4 </label>
-                <input type="radio" id="expertise_five" name="expertise" formControlName="expertise" value=5>
-                <label for="expertise_five">5 </label>
-                <div class="err_class" *ngIf="submitted == true && form.controls.question_2.value.expertise == ''">Please select a rating</div>
+                  <div *ngFor="let trainerInfo of trainersExpertiseRatingArr; let i=index">
+                      <span class="trainerName"> {{trainerInfo.name}}</span>
+                <input type="radio" id="{{'expertise_one'+i}}" name="{{'expertise_'+i}}"  (change)="handleChange($event,i,'expertise')"   value=1>
+                <label for="{{'expertise_one'+i}}">1</label>
+                <input type="radio" id="{{'expertise_two'+i}}" name="{{'expertise_'+i}}"  (change)="handleChange($event,i,'expertise')"  value=2>
+                <label for="{{'expertise_two'+i}}">2 </label>
+                <input type="radio" id="{{'expertise_three'+i}}" name="{{'expertise_'+i}}"  (change)="handleChange($event,i,'expertise')"  value=3>
+                <label for="{{'expertise_three'+i}}">3 </label>
+                <input type="radio" id="{{'expertise_four'+i}}" name="{{'expertise_'+i}}"  (change)="handleChange($event,i,'expertise')"  value=4>
+                <label for="{{'expertise_four'+i}}">4 </label>
+                <input type="radio" id="{{'expertise_five'+i}}" name="{{'expertise_'+i}}"  (change)="handleChange($event,i,'expertise')"  value=5>
+                <label for="{{'expertise_five'+i}}">5 </label>
+                  </div>
+                  <input type="hidden" name="expertise" formControlName="expertise" [value]=expertise_sum>
+                <div class="err_class" *ngIf="submitted == true && e_rating == true">Please select a rating</div>
               </td>
               <td>
-                <textarea rows="2" cols="50" formControlName="expertise_comment"></textarea>
+                <textarea rows="2" cols="30" formControlName="expertise_comment"></textarea>
               </td>
             </tr>
             <tr>
               <td>Interaction with participants</td>
               <td>
-                <input type="radio" id="interaction_one" name="interaction" formControlName="interaction" value=1>
-                <label for="interaction_one">1</label>
-                <input type="radio" id="interaction_two" name="interaction" formControlName="interaction" value=2>
-                <label for="interaction_two">2 </label>
-                <input type="radio" id="interaction_three" name="interaction" formControlName="interaction" value=3>
-                <label for="interaction_three">3 </label>
-                <input type="radio" id="interaction_four" name="interaction" formControlName="interaction" value=4>
-                <label for="interaction_four">4 </label>
-                <input type="radio" id="interaction_five" name="interaction" formControlName="interaction" value=5>
-                <label for="interaction_five">5 </label>
-                <div class="err_class" *ngIf="submitted == true && form.controls.question_2.value.interaction == ''">Please select a rating</div>
+                  <div *ngFor="let trainerInfo of trainersInteractionRatingArr; let i=index">
+                      <span class="trainerName"> {{trainerInfo.name}}</span>
+                      <input type="radio" id="{{'interaction_one'+i}}" name="{{'interaction_'+i}}"  (change)="handleChange($event,i,'interaction')"   value=1>
+                      <label for="{{'interaction_one'+i}}">1</label>
+                      <input type="radio" id="{{'interaction_two'+i}}" name="{{'interaction_'+i}}" (change)="handleChange($event,i,'interaction')" value=2>
+                      <label for="{{'interaction_two'+i}}">2 </label>
+                      <input type="radio" id="{{'interaction_three'+i}}" name="{{'interaction_'+i}}" (change)="handleChange($event,i,'interaction')" value=3>
+                      <label for="{{'interaction_three'+i}}">3 </label>
+                      <input type="radio" id="{{'interaction_four'+i}}" name="{{'interaction_'+i}}" (change)="handleChange($event,i,'interaction')"  value=4>
+                      <label for="{{'interaction_four'+i}}">4 </label>
+                      <input type="radio" id="{{'interaction_five'+i}}" name="{{'interaction_'+i}}" (change)="handleChange($event,i,'interaction')" value=5>
+                      <label for="{{'interaction_five'+i}}">5 </label>
+                  </div>
+                  <input type="hidden" name="interaction" formControlName="interaction" [value]=interaction_sum>
+                <div class="err_class" *ngIf="submitted == true && i_rating == true">Please select a rating</div>
               </td>
               <td>
-                <textarea rows="2" cols="50" formControlName="interaction_comment"></textarea>
+                <textarea rows="2" cols="30" formControlName="interaction_comment"></textarea>
               </td>
             </tr>
           </tbody>

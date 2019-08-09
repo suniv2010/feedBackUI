@@ -10,7 +10,7 @@ p{
 table> thead > tr > th {
     width: 300px;
 }
-td>label {
+td label {
      border-radius : 50%;
      border: solid 2px #ccc;
      margin-right: 15px;
@@ -21,11 +21,11 @@ td>label {
      text-indent: 7px;
    }
    
-   td>input[type="radio"] {
+   td input[type="radio"] {
      display: none;
    }
    
-   td>input[type="radio"]:checked + label {
+   td input[type="radio"]:checked + label {
    border : 1px solid red
    }
    input[type=text]{
@@ -36,6 +36,12 @@ td>label {
    }
    input[type=text]:focus{
      outline: none
+   }
+
+   .trainerName{
+     font-size: 11px;
+     font-weight: bold;
+     margin-right: 10px;
    }
 
    .err_class{

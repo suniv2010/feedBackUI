@@ -34,7 +34,7 @@
                   </div> 
                 </nav>
 
-                <ul class="nav flex-column float-left side_nav" *ngIf="router.url == '/analysis' || router.url == '/content' || router.url == '/trainingexperience' || router.url == '/trainingqualification'">
+                <ul class="nav flex-column float-left side_nav" *ngIf="router.url == '/analysis' || router.url == '/content' || router.url == '/trainingexperience' || router.url == '/trainingqualification'  || router.url == '/trainerqualification'">
                     
                   <li class="nav-item" style="border-bottom: 2px solid #fff">
                       <a class="nav-link disabled my-4" href="#">Graphical Representation</a>
@@ -43,7 +43,7 @@
                       <a class="nav-link my-3"  [routerLink]="['/content']" >Training Content</a>
                     </li>
                     <li class="nav-item"  [routerLinkActive]="['isactive']">
-                      <a class="nav-link my-3" [routerLink]="['/trainingqualification']">Trainer Qualification</a>
+                      <a class="nav-link my-3" [routerLink]="['/trainerqualification']">Trainer Qualification</a>
                     </li>
                     <li class="nav-item" [routerLinkActive]="['isactive']">
                       <a class="nav-link my-3" [routerLink]="['/trainingexperience']" >Training Experience</a>

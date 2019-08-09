@@ -28,6 +28,7 @@ import { TrainingQualificationComponent } from './charts/training-qualification/
 import { TrainingExperienceComponent } from './charts/training-experience/training-experience.component';
 import { GraphicalpresentationComponent } from './graphicalpresentation/graphicalpresentation.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { TrainerQualificationComponent } from './charts/trainer-qualification/trainer-qualification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home' , pathMatch: 'full'},
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'analysis', component: PieChartComponent },
   { path: 'content', component: BarChartComponent },
   { path: 'trainingqualification', component: TrainingQualificationComponent },
+  { path: 'trainerqualification', component: TrainerQualificationComponent },
   { path: 'trainingexperience', component: TrainingExperienceComponent },
   { path: 'trainingform/:id', component: TrainingformComponent },
   { path: 'success', component: SuccessComponent },
@@ -61,7 +63,8 @@ const routes: Routes = [
     PieChartComponent,
     TrainingQualificationComponent,
     TrainingExperienceComponent,
-    GraphicalpresentationComponent
+    GraphicalpresentationComponent,
+    TrainerQualificationComponent
   ],
   imports: [
     BrowserModule,

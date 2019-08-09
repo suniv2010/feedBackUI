@@ -5,7 +5,8 @@ import {
 import {
   FormBuilder,
   Validators,
-  FormGroup
+  FormGroup,
+  FormArray
 } from '@angular/forms';
 import {
   HttpService
@@ -30,6 +31,18 @@ export class TrainingformComponent implements OnInit {
   trainingLocation = '';
   trainingDate = '';
   submitted = false;
+  trainersPresentationRatingArr = [];
+  trainersUnderstandabilityRatingArr = [];
+  trainersExpertiseRatingArr = [];
+  trainersInteractionRatingArr = [];
+  presentation_sum = 0;
+  understanding_sum = 0;
+  expertise_sum = 0;
+  interaction_sum = 0;
+  p_rating = false;
+  u_rating = false;
+  e_rating = false;
+  i_rating =false;
 
   form = this.fb.group({
     participantName: this.fb.group({
@@ -53,6 +66,7 @@ export class TrainingformComponent implements OnInit {
       t_date: [''],
     }),
     question_1: this.fb.group({
+      
       quality: ['', Validators.required],
       quality_comment: [''],
       value: ['', Validators.required],
@@ -63,13 +77,13 @@ export class TrainingformComponent implements OnInit {
       logic_comment: ['']
     }),
     question_2: this.fb.group({
-      presentation: ['', Validators.required],
+      presentation: [''],
       presentation_comment: [''],
-      understanding: ['', Validators.required],
+      understanding: [''],
       understanding_comment: [''],
-      expertise: ['', Validators.required],
+      expertise: [''],
       expertise_comment: [''],
-      interaction: ['', Validators.required],
+      interaction: [''],
       interaction_comment: ['']
     }),
     question_3: this.fb.group({
@@ -119,6 +133,7 @@ export class TrainingformComponent implements OnInit {
       this.TrainingDetails = response as {};
       this.trainingName = this.TrainingDetails["training"];
       this.trainerNames = this.TrainingDetails["trainers"].toString();
+      
       this.trainingLocation = this.TrainingDetails["location"];
       if (this.TrainingDetails["from_date"] == this.TrainingDetails["to_date"])
       {
@@ -127,17 +142,100 @@ export class TrainingformComponent implements OnInit {
       else{
         this.trainingDate =  this.TrainingDetails["from_date"] + " to " + this.TrainingDetails["to_date"]
       }
+
+      for(var i =0;i<this.TrainingDetails["trainers"].length;i++){
+        this.trainersPresentationRatingArr[i] = {"name":this.TrainingDetails["trainers"][i],"rating":0};
+        this.trainersUnderstandabilityRatingArr[i] = {"name":this.TrainingDetails["trainers"][i],"rating":0};
+        this.trainersExpertiseRatingArr[i] = {"name":this.TrainingDetails["trainers"][i],"rating":0};
+        this.trainersInteractionRatingArr[i] = {"name":this.TrainingDetails["trainers"][i],"rating":0};      
+      }
+      
     });
   }
 
   onSubmit() {
     this.submitted = true;
-    //console.log(JSON.stringify(this.form.value));
-    if(this.form.valid){
+    this.p_rating = false;
+    this.u_rating = false;
+    this.e_rating = false;
+    this.i_rating = false;
+
+    for(var i = 0; i < this.trainersPresentationRatingArr.length; i++){
+
+      if(this.trainersPresentationRatingArr[i]["rating"]==0 && this.p_rating == false){
+        this.p_rating = true;
+      }
+      if(this.trainersUnderstandabilityRatingArr[i]["rating"]==0 && this.u_rating == false){
+        this.u_rating = true;
+      }
+      if(this.trainersExpertiseRatingArr[i]["rating"]==0 && this.e_rating == false){
+        this.e_rating = true;
+      }
+      if(this.trainersInteractionRatingArr[i]["rating"]==0 && this.i_rating == false){
+        this.i_rating = true;
+      }
+    }
+
+    console.log(JSON.stringify(this.form.value));
+    if(this.form.valid && this.p_rating == false && this.u_rating == false && this.e_rating == false && this.i_rating == false){
       this.convertResponseToPost(this.form.value);
+      console.log("success");
     }
     
   }
+
+  handleChange(evt,index,topic){ 
+    console.log(topic);
+    if(topic == 'presentation'){
+      this.trainersPresentationRatingArr[index]["rating"] = parseInt(evt.target.value);
+      console.log(this.trainersPresentationRatingArr[index]["rating"]);
+    }
+    else if(topic == 'understanding'){
+      this.trainersUnderstandabilityRatingArr[index]["rating"] = parseInt(evt.target.value);
+    }
+    else if(topic == 'expertise'){
+      this.trainersExpertiseRatingArr[index]["rating"] = parseInt(evt.target.value);
+    }
+    else{
+      this.trainersInteractionRatingArr[index]["rating"] = parseInt(evt.target.value);
+    }
+
+    this.presentation_sum = 0;
+    this.understanding_sum = 0;
+    this.expertise_sum = 0;
+    this.interaction_sum = 0;
+    this.p_rating = false;
+    this.u_rating = false;
+    this.e_rating = false;
+    this.i_rating = false;
+
+    for(var i = 0; i < this.trainersPresentationRatingArr.length; i++){
+      this.presentation_sum += this.trainersPresentationRatingArr[i]["rating"];
+      this.understanding_sum += this.trainersUnderstandabilityRatingArr[i]["rating"];
+      this.expertise_sum += this.trainersExpertiseRatingArr[i]["rating"];
+      this.interaction_sum += this.trainersInteractionRatingArr[i]["rating"];
+
+      if(this.trainersPresentationRatingArr[i]["rating"]==0 && this.p_rating == false){
+        this.p_rating = true;
+      }
+      if(this.trainersUnderstandabilityRatingArr[i]["rating"]==0 && this.u_rating == false){
+        this.u_rating = true;
+      }
+      if(this.trainersExpertiseRatingArr[i]["rating"]==0 && this.e_rating == false){
+        this.e_rating = true;
+      }
+      if(this.trainersInteractionRatingArr[i]["rating"]==0 && this.i_rating == false){
+        this.i_rating = true;
+      }
+    }
+
+    this.presentation_sum = this.presentation_sum/this.trainersPresentationRatingArr.length;
+    this.understanding_sum = this.understanding_sum/this.trainersPresentationRatingArr.length;
+    this.expertise_sum = this.expertise_sum/this.trainersPresentationRatingArr.length;
+    this.interaction_sum = this.interaction_sum/this.trainersPresentationRatingArr.length;
+
+   
+} 
   convertResponseToPost(formValue) {
 
     const finalResponse = {
@@ -180,23 +278,27 @@ export class TrainingformComponent implements OnInit {
           "comments": "",
           "subquestions": [{
               "sub_ques": "Presentation Skills",
-              "rating": this.form.controls['question_2'].value.presentation,
-              "comments": this.form.controls['question_2'].value.presentation_comment
+              "rating": this.presentation_sum,
+              "comments": this.form.controls['question_2'].value.presentation_comment,
+              "trainerrating":this.trainersPresentationRatingArr
             },
             {
               "sub_ques": "Understandability of Explanations",
-              "rating": this.form.controls['question_2'].value.understanding,
-              "comments": this.form.controls['question_2'].value.understanding_comment
+              "rating": this.understanding_sum,
+              "comments": this.form.controls['question_2'].value.understanding_comment,
+              "trainerrating":this.trainersUnderstandabilityRatingArr
             },
             {
               "sub_ques": "Product expertise",
-              "rating": this.form.controls['question_2'].value.expertise,
-              "comments": this.form.controls['question_2'].value.expertise_comment
+              "rating": this.expertise_sum,
+              "comments": this.form.controls['question_2'].value.expertise_comment,
+              "trainerrating":this.trainersExpertiseRatingArr
             },
             {
               "sub_ques": "Interaction with Participants",
-              "rating": this.form.controls['question_2'].value.interaction,
-              "comments": this.form.controls['question_2'].value.interaction_comment
+              "rating": this.interaction_sum,
+              "comments": this.form.controls['question_2'].value.interaction_comment,
+              "trainerrating":this.trainersInteractionRatingArr
             }
           ]
         },
